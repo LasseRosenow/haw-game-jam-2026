@@ -54,6 +54,7 @@ func _process(delta: float) -> void:#
 		velocity.y -= 1
 	if Input.is_action_just_pressed("pickup_player%s" % player):
 		if self.interactable_node != null:
+			print("emitting signal to node")
 			self.interactable_node.emit_signal("interacted_with", holding_item != null, self)
 		elif self.holding_item != null:
 			print("dropped")
