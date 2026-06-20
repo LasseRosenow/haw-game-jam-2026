@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bo11ffukspmpx" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cn6ci4djngx4p" path="res://imgs/walking/Playerone-v1.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://by33g7uu0gibl" path="res://imgs/walking/Playerone-walk1.png" id="3_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://rskukjboyjvc" path="res://imgs/walking/Playerone-walk2.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://cqhfk1rc7vs4y" path="res://imgs/walking/Playerone-walk2-v2.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bo6mrjr4frelm" path="res://imgs/walking/Playerone-walk3.png" id="5_dw050"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvc6a"]
@@ -21,7 +21,7 @@ animations = [{
 "texture": ExtResource("3_2hs0m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_1jxqw")
+"texture": ExtResource("4_sweqy")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_dw050")
@@ -42,6 +42,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 sprite_frames = SubResource("SpriteFrames_kvc6a")
 animation = &"Walking"
+frame_progress = 0.38925502
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
