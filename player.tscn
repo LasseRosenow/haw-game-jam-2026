@@ -36,6 +36,7 @@ size = Vector2(14, 22)
 
 [node name="Player" type="Area2D" unique_id=1238932236]
 scale = Vector2(3, 3)
+collision_mask = 3
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 

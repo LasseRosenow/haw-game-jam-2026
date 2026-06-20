@@ -21,7 +21,11 @@ func _on_new_target(target: Node2D) -> void:
 	print("Recieved new target signal")
 	if target == null:
 		disable_movement = true
+		$CollisionShape2D.disabled = true
+		self.set_collision_mask_value(2, false)
 	else:
 		$Agent.target_position = target.position
 		disable_movement = false
+		$CollisionShape2D.disabled = false
+		self.set_collision_mask_value(2, true)
 	

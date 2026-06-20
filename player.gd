@@ -26,12 +26,12 @@ func _process(delta: float) -> void:#
 	if Input.is_action_pressed("move_up_player%s" % player):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("pickup_player%s" % player):
-		if self.interact_body == null:
-			print("Tried to pick up but there was no object")
-		elif self.holding_item != null:
+		if self.holding_item != null:
 			print("dropped")
-			self.holding_item.emit_signal("new_target", get_parent().get_node("Waterstream"))
+			self.holding_item.emit_signal("new_target", get_parent().get_node("Target"))
 			self.holding_item = null
+		elif self.interact_body == null:
+			print("Tried to pick up but there was no object")
 		else:
 			print("Pickup up :)")
 			self.holding_item = interact_body
