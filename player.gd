@@ -57,6 +57,7 @@ func _process(delta: float) -> void:#
 	if Input.is_action_pressed("move_up_player%s" % player):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("pickup_player%s" % player):
+		$ButtonUI.emit_signal("start_animation", false)
 		if self.interactable_node != null:
 			print("emitting signal to node")
 			self.interactable_node.emit_signal("interacted_with", holding_item != null, self)

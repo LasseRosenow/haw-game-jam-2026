@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://cloj8ilay6bs6"]
 
 [ext_resource type="Texture2D" uid="uid://f6lif3kqymh" path="res://imgs/tiles/water-walkway.png" id="1_6vus4"]
+[ext_resource type="Script" uid="uid://du27a2l5fwkyw" path="res://fishing_walkway.gd" id="1_g0r1i"]
+[ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_ud524"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r83mo"]
 size = Vector2(4, 6)
 
-[node name="WaterWalkway" type="RigidBody2D" unique_id=1215048035]
+[node name="FishingWalkway" type="RigidBody2D" unique_id=1215048035]
 collision_layer = 2
 collision_mask = 2
 freeze = true
+script = ExtResource("1_g0r1i")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1526320403]
 scale = Vector2(1.6309283, 1.6309283)
@@ -17,3 +20,13 @@ texture = ExtResource("1_6vus4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701455311]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_r83mo")
+
+[node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("3_ud524")]
+position = Vector2(0, 1)
+scale = Vector2(0.35999784, 0.35999784)
+
+[node name="Timer" type="Timer" parent="." unique_id=264091391]
+one_shot = true
+
+[connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
