@@ -6,7 +6,7 @@ const MAX_SPEED = 400
 @export var player = 1
 @export var interact_body: CharacterBody2D
 @export var holding_item: CharacterBody2D
-@export var interactable_node: Area2D
+@export var interactable_node: RigidBody2D
 
 var wetness: float = 0.0
 
@@ -19,7 +19,6 @@ func _is_on_water() -> bool:
 
 @export var ground_y: float = 600.0   # Y at the bottom, no blue
 @export var top_y: float = 100.0      # Y at the top, full blue
-@onready var sprite: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -84,18 +83,19 @@ func _process(delta: float) -> void:#
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body.name)
-	if body.name == "Item":
+	if  body.name.contains("Item"):
 		print("Item Pickup Range")
 		self.interact_body = body
 		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
 		$ButtonUI.emit_signal("start_animation", true)
 		print("assigned")
-	elif body.name == "RiceField":
+	elif body.name.contains("RiceField"):
 		print("Entered RiceField")
 		self.interactable_node = body
 
 
 func _on_body_exited(body: Node2D) -> void:
+	print("Leaving %s" % body.name)
 	if interact_body == body:
 		self.interact_body = null
 		$ButtonUI.emit_signal("start_animation", false)

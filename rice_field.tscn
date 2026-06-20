@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bexby5jwudtoq" path="res://imgs/tiles/soil-growstate1.png" id="2_vjkor"]
 [ext_resource type="Texture2D" uid="uid://ds5adm35pegn3" path="res://imgs/tiles/woil-growstatefinal.png" id="3_d1wy8"]
 [ext_resource type="Texture2D" uid="uid://cah8uqlfkjtfe" path="res://imgs/tiles/soil-wet.png" id="4_2nwv8"]
+[ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="6_d1wy8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h31yd"]
 animations = [{
@@ -44,9 +45,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xs1s"]
 size = Vector2(16, 17)
 
-[node name="RiceField" type="Area2D" unique_id=735180858]
-collision_layer = 3
-collision_mask = 3
+[node name="RiceField" type="RigidBody2D" unique_id=312849790]
+collision_layer = 6
+collision_mask = 6
+freeze = true
 script = ExtResource("1_vjkor")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1270252511]
@@ -58,4 +60,9 @@ shape = SubResource("RectangleShape2D_6xs1s")
 
 [node name="GrowTimer" type="Timer" parent="." unique_id=2122106789]
 
+[node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("6_d1wy8")]
+position = Vector2(0, 6)
+scale = Vector2(0.5, 0.5)
+
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]

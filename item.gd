@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 80
 @export var target: Node2D = null
 @export var disable_movement: bool = false
+@export var type = "Item"
 
 signal new_target(target: Node2D)
 
