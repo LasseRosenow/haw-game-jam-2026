@@ -109,16 +109,19 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.name.contains("FishingWalkway"):
 		print("Entered Fishing Walkway")
 		self.interactable_node = body
+		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+		$ButtonUI.emit_signal("start_animation", true)
 
 
 func _on_body_exited(body: Node2D) -> void:
 	print("Leaving %s" % body.name)
+	$ButtonUI.emit_signal("start_animation", false)
 	if interact_body == body:
 		self.interact_body = null
-		$ButtonUI.emit_signal("start_animation", false)
 		print("Left range")
 	elif interactable_node == body:
 		self.interactable_node = null
+		print("Left Rice or Fishing")
 
 func _on_wet_cooldown_timeout() -> void:
 		# Detect if the player is on water or land
