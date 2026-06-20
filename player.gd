@@ -86,7 +86,7 @@ func _on_body_entered(body: Node2D) -> void:
 		self.interact_body = body
 		$ButtonsUI.show()
 		$ButtonAnimation.play("Hovering")
-		$ButtonsUI.play("Enter")
+		$ButtonsUI.play("Enter%s" % player)
 		print("assigned")
 
 func _on_body_exited(body: Node2D) -> void:
@@ -101,7 +101,7 @@ func _on_wet_cooldown_timeout() -> void:
 		# Detect if the player is on water or land
 	if _is_on_water():
 		if wetness <= 1.0:
-			wetness += 0.1
+			wetness += 0.3
 	else:
 		if wetness > 0.0:
 			wetness -= 0.05

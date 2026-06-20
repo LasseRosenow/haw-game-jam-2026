@@ -114,13 +114,25 @@ _data = {
 atlas = ExtResource("6_2hs0m")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1c27"]
+atlas = ExtResource("6_2hs0m")
+region = Rect2(144, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
 atlas = ExtResource("6_2hs0m")
 region = Rect2(80, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
+atlas = ExtResource("6_2hs0m")
+region = Rect2(96, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
 atlas = ExtResource("6_2hs0m")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
+atlas = ExtResource("6_2hs0m")
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
 atlas = ExtResource("6_2hs0m")
@@ -130,9 +142,17 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("6_2hs0m")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylmc"]
+atlas = ExtResource("6_2hs0m")
+region = Rect2(160, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("6_2hs0m")
 region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfsw"]
+atlas = ExtResource("6_2hs0m")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
 animations = [{
@@ -141,7 +161,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_n7ghd")
 }],
 "loop": 1,
-"name": &"Down",
+"name": &"Down1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1c27")
+}],
+"loop": 1,
+"name": &"Down2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -149,7 +177,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_nvl01")
 }],
 "loop": 1,
-"name": &"Enter",
+"name": &"Enter1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op7ga")
+}],
+"loop": 1,
+"name": &"Enter2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -157,7 +193,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_ivps1")
 }],
 "loop": 1,
-"name": &"Left",
+"name": &"Left1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q13i1")
+}],
+"loop": 1,
+"name": &"Left2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -173,7 +217,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_bwjto")
 }],
 "loop": 1,
-"name": &"Right",
+"name": &"Right1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylmc")
+}],
+"loop": 1,
+"name": &"Right2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -181,7 +233,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_606se")
 }],
 "loop": 1,
-"name": &"Up",
+"name": &"Up1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbfsw")
+}],
+"loop": 1,
+"name": &"Up2",
 "speed": 5.0
 }]
 
@@ -214,7 +274,7 @@ libraries/ = SubResource("AnimationLibrary_b26j0")
 visible = false
 position = Vector2(0, -27.892796)
 sprite_frames = SubResource("SpriteFrames_sweqy")
-animation = &"Down"
+animation = &"Up1"
 
 [node name="WetCooldown" type="Timer" parent="." unique_id=6230518]
 wait_time = 0.1
