@@ -21,6 +21,10 @@ signal is_on_land
 func _is_on_water() -> bool:
 	return feet.has_overlapping_bodies()
 
+@export var ground_y: float = 600.0   # Y at the bottom, no blue
+@export var top_y: float = 100.0      # Y at the top, full blue
+@onready var sprite: Sprite2D = $Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -28,18 +32,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:#
 	var velocity = Vector2.ZERO
-	
-	# Detect if the player is on water or land
-	if _is_on_water():
-		if not was_on_water:
-			is_on_water.emit()
-		if wetness <= 1.0:
-			wetness += 0.1
-	else:
-		if was_on_water:
-			is_on_land.emit()
-		if wetness > 0.0:
-			wetness -= 0.1
 	
 	# Update the players speed based on wettness
 	speed = (MAX_SPEED - MAX_SPEED * (0.5 * wetness))
@@ -88,6 +80,9 @@ func _process(delta: float) -> void:#
 	if self.holding_item:
 		self.holding_item.position += velocity * delta
 
+	# Shader magic stuff
+	$AnimatedSprite2D.material.set_shader_parameter("blue_amount", clampf(wetness, 0.0, 0.5))
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Item":
 		print("Item Pickup Range")
@@ -103,3 +98,17 @@ func _on_body_exited(body: Node2D) -> void:
 		$ButtonAnimation.stop()
 		$ButtonsUI.hide()
 		print("Left range")
+
+
+func _on_wet_cooldown_timeout() -> void:
+		# Detect if the player is on water or land
+	if _is_on_water():
+		if not was_on_water:
+			is_on_water.emit()
+		if wetness <= 1.0:
+			wetness += 0.1
+	else:
+		if was_on_water:
+			is_on_land.emit()
+		if wetness > 0.0:
+			wetness -= 0.05
