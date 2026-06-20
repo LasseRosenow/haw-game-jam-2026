@@ -70,10 +70,16 @@ func _process(delta: float) -> void:#
 	# Sprite Processing
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play("Walking")
-		$AnimatedSprite2D.flip_h = 0 >= velocity.x 
+		if _is_on_water():
+			$AnimatedSprite2D.play("Swimming")
+		else:
+			$AnimatedSprite2D.play("Walking")
+			$AnimatedSprite2D.flip_h = 0 >= velocity.x 
 	elif $AnimatedSprite2D.animation != "Idle":
-		$AnimatedSprite2D.play("Idle")
+		if _is_on_water():
+			$AnimatedSprite2D.play("Floating")
+		else:
+			$AnimatedSprite2D.play("Idle")
 	
 	# Position Updating
 	position += velocity * delta
