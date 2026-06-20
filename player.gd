@@ -6,12 +6,11 @@ const MAX_SPEED = 400
 @export var player = 1
 @export var interact_body: CharacterBody2D
 @export var holding_item: CharacterBody2D
+@export var interactable_node: Area2D
 
 var wetness: float = 0.0
 
 var screen_size: Vector2
-signal pickup
-
 
 # Water detection
 @onready var feet: Area2D = $WaterDetector
@@ -43,7 +42,9 @@ func _process(delta: float) -> void:#
 	if Input.is_action_pressed("move_up_player%s" % player):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("pickup_player%s" % player):
-		if self.holding_item != null:
+		if self.interactable_node != null:
+			self.interactable_node.emit_signal("interacted_with")
+		elif self.holding_item != null:
 			print("dropped")
 			self.holding_item.emit_signal("new_target", get_parent().get_node("Target"))
 			self.holding_item = null
@@ -82,21 +83,25 @@ func _process(delta: float) -> void:#
 	$AnimatedSprite2D.material.set_shader_parameter("blue_amount", clampf(wetness, 0.0, 0.35))
 
 func _on_body_entered(body: Node2D) -> void:
+	print(body.name)
 	if body.name == "Item":
 		print("Item Pickup Range")
 		self.interact_body = body
-		$ButtonsUI.show()
-		$ButtonAnimation.play("Hovering")
-		$ButtonsUI.play("Enter%s" % player)
+		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+		$ButtonUI.emit_signal("start_animation", true)
 		print("assigned")
+	elif body.name == "RiceField":
+		print("Entered RiceField")
+		self.interactable_node = body
+
 
 func _on_body_exited(body: Node2D) -> void:
 	if interact_body == body:
 		self.interact_body = null
-		$ButtonAnimation.stop()
-		$ButtonsUI.hide()
+		$ButtonUI.emit_signal("start_animation", false)
 		print("Left range")
-
+	elif interactable_node == body:
+		self.interactable_node = null
 
 func _on_wet_cooldown_timeout() -> void:
 		# Detect if the player is on water or land
