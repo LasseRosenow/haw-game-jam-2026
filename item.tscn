@@ -46,7 +46,7 @@ script = ExtResource("1_ttk8k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143882475]
 sprite_frames = SubResource("SpriteFrames_h31yd")
-animation = &"rice"
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=903020546]
 shape = SubResource("CircleShape2D_ttk8k")

@@ -40,7 +40,6 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		#Awful
 		get_parent().get_parent().add_child(item)
 		interactor.pickup_item(item)
-		get_parent().add_child(item)
 		$AnimatedSprite2D.play("watered")
 		$ButtonUI.emit_signal("start_animation", false)
 		$GrowTimer.start(10)

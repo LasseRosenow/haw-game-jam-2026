@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cweoutdgdpxca" path="res://map.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1ghiwr21lqmg" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b801l65xjgddt" path="res://item.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://hlct5gh2ctt" path="res://the_killer.gd" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
+size = Vector2(164, 273)
 
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
@@ -13,12 +17,22 @@ scale = Vector2(8, 8)
 position = Vector2(883, 95)
 
 [node name="PlayerLeft" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
-position = Vector2(380, 97)
+position = Vector2(289, 84.00001)
 player = 2
 
 [node name="Item" parent="." unique_id=1375219901 instance=ExtResource("2_0xm2m")]
-position = Vector2(441.99997, 124.99997)
+position = Vector2(168.00003, 249)
 
 [node name="Target" type="Node2D" parent="." unique_id=1070107381]
-position = Vector2(1598.3092, 305.05734)
+position = Vector2(1718, 265)
 scale = Vector2(10, 10)
+
+[node name="TheKiller" type="RigidBody2D" parent="." unique_id=1108982736]
+position = Vector2(1799, 263)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TheKiller" unique_id=1535973850]
+position = Vector2(-391, -3)
+shape = SubResource("RectangleShape2D_h31yd")
+
+[connection signal="body_entered" from="TheKiller" to="TheKiller" method="_on_body_entered"]
