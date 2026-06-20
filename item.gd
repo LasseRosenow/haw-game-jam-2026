@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 3000
+@export var speed = 80
 @export var target: Node2D = null
 @export var disable_movement: bool = false
 
@@ -15,22 +15,24 @@ func _is_on_water() -> bool:
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if !$Agent.is_target_reached() and !disable_movement:
+func _physics_process(_delta: float) -> void:
+	if disable_movement or not _is_on_water():
+		return
+
+	if not $Agent.is_target_reached():
 		var nav_path = to_local($Agent.get_next_path_position()).normalized()
-		velocity = nav_path * speed * delta
+		velocity = nav_path * speed 
 		move_and_slide()
 
+
 func _on_new_target(target: Node2D) -> void:
-	print("Recieved new target signal")
+	print("Received new target signal")
 	if target == null:
 		disable_movement = true
-		$CollisionShape2D.disabled = true
-		self.set_collision_mask_value(2, false)
+		$CollisionShape2D.set_deferred("disabled", true)
+		call_deferred("set_collision_mask_value", 2, false)
 	else:
 		$Agent.target_position = target.position
 		disable_movement = false
-		$CollisionShape2D.disabled = false
-		self.set_collision_mask_value(2, true)
-	
+		$CollisionShape2D.set_deferred("disabled", false)
+		call_deferred("set_collision_mask_value", 2, true)

@@ -13,11 +13,11 @@ scale = Vector2(10, 10)
 position = Vector2(883, 95)
 
 [node name="PlayerLeft" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
-position = Vector2(130.00006, 86)
+position = Vector2(380, 97)
 player = 2
 
 [node name="Item" parent="." unique_id=1375219901 instance=ExtResource("2_0xm2m")]
-position = Vector2(237, 92.99994)
+position = Vector2(441.99997, 124.99997)
 rotation = 0.1632403
 scale = Vector2(0.99999994, 0.99999994)
 
