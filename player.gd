@@ -9,7 +9,7 @@ const MAX_SPEED = 400
 @export var interactable_node: RigidBody2D
 
 var wetness: float = 0.0
-
+var holding_item_og_zlayer: int
 var screen_size: Vector2
 
 # Water detection
@@ -23,6 +23,18 @@ func _is_on_water() -> bool:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+
+func pickup_item(item: Node2D) -> void:
+	item.global_position = self.global_position
+	holding_item_og_zlayer = item.z_index
+	item.z_index = self.z_index + 1
+	self.holding_item = item
+	self.holding_item.emit_signal("new_target", null)
+
+func drop_item(item: Node2D) -> void:
+	self.holding_item.emit_signal("new_target", get_parent().get_node("Target"))
+	item.z_index = holding_item_og_zlayer
+	self.holding_item = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:#
@@ -42,18 +54,15 @@ func _process(delta: float) -> void:#
 		velocity.y -= 1
 	if Input.is_action_just_pressed("pickup_player%s" % player):
 		if self.interactable_node != null:
-			self.interactable_node.emit_signal("interacted_with")
+			self.interactable_node.emit_signal("interacted_with", holding_item != null, self)
 		elif self.holding_item != null:
 			print("dropped")
-			self.holding_item.emit_signal("new_target", get_parent().get_node("Target"))
-			self.holding_item = null
+			self.drop_item(self.holding_item)
 		elif self.interact_body == null:
 			print("Tried to pick up but there was no object")
 		else:
 			print("Pickup up :)")
-			self.holding_item = interact_body
-			self.holding_item.emit_signal("new_target", null)
-		
+			self.pickup_item(self.interact_body)
 		
 	# Sprite Processing
 	if velocity.length() > 0:

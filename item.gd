@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var target: Node2D = null
 @export var disable_movement: bool = false
 @export var type = "Item"
+@export var item_type: String = "default"
 
 signal new_target(target: Node2D)
 
@@ -14,7 +15,7 @@ func _is_on_water() -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$AnimatedSprite2D.animation = item_type
 
 func _physics_process(_delta: float) -> void:
 	if disable_movement or not _is_on_water():
