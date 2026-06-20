@@ -1,22 +1,16 @@
 [gd_scene format=3 uid="uid://1ghiwr21lqmg"]
 
-[ext_resource type="Texture2D" uid="uid://ciqs8kuqsojsg" path="res://imgs/blabla-Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bo11ffukspmpx" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://csqebu5pj74s" path="res://imgs/Figure1.png" id="2_i3pqv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(32, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://cn6ci4djngx4p" path="res://imgs/walking/Playerone-v1.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://by33g7uu0gibl" path="res://imgs/walking/Playerone-walk1.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://rskukjboyjvc" path="res://imgs/walking/Playerone-walk2.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://bo6mrjr4frelm" path="res://imgs/walking/Playerone-walk3.png" id="5_dw050"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvc6a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_i3pqv")
+"texture": ExtResource("2_sweqy")
 }],
 "loop": 1,
 "name": &"Idle",
@@ -24,14 +18,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
+"texture": ExtResource("3_2hs0m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
+"texture": ExtResource("4_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dw050")
 }],
 "loop": 1,
 "name": &"Walking",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
@@ -44,7 +41,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 sprite_frames = SubResource("SpriteFrames_kvc6a")
-animation = &"Idle"
+animation = &"Walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
