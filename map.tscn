@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bkdla2lsr2xke" path="res://imgs/tiles/sheet.png" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://b2ges7m2vtjj4" path="res://rice_field.tscn" id="2_wijl4"]
-[ext_resource type="PackedScene" uid="uid://cloj8ilay6bs6" path="res://water_walkway.tscn" id="3_e0an3"]
+[ext_resource type="PackedScene" uid="uid://cloj8ilay6bs6" path="res://fishing_walkway.tscn" id="3_e0an3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c7s6e"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -82,5 +82,5 @@ position = Vector2(48, 54)
 [node name="RiceField3" parent="." unique_id=1651999154 instance=ExtResource("2_wijl4")]
 position = Vector2(65, 54)
 
-[node name="WaterWalkway" parent="." unique_id=507188979 instance=ExtResource("3_e0an3")]
+[node name="FishingWalkway" parent="." unique_id=507188979 instance=ExtResource("3_e0an3")]
 position = Vector2(8, 25)

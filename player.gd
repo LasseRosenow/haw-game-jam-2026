@@ -106,6 +106,9 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.name.contains("RiceField"):
 		print("Entered RiceField")
 		self.interactable_node = body
+	elif body.name.contains("FishingWalkway"):
+		print("Entered Fishing Walkway")
+		self.interactable_node = body
 
 
 func _on_body_exited(body: Node2D) -> void:
