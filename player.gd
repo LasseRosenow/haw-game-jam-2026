@@ -13,10 +13,12 @@ var wetness: = 1
 var screen_size: Vector2
 signal pickup
 
+
+# Water detection
 @onready var feet: Area2D = $Feet
-
+var was_on_water = false
 signal is_on_water
-
+signal is_on_land
 func _is_on_water() -> bool:
 	return feet.has_overlapping_bodies()
 
@@ -28,13 +30,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:#
 	var velocity = Vector2.ZERO
 	
+	# Detect if the player is on water or land
 	if _is_on_water():
+		if not was_on_water:
+			is_on_water.emit()
 		if wetness < 10:
 			wetness += 1
 	else:
+		if was_on_water:
+			is_on_land.emit()
 		if wetness > 1:
 			wetness -= 1
 	
+	# Update the players speed based on wettness
 	speed = MAX_SPEED / wetness
 		
 	# Input processing
