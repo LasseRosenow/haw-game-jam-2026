@@ -1,16 +1,29 @@
 [gd_scene format=3 uid="uid://chopvjoptxkg0"]
 
+[ext_resource type="PackedScene" uid="uid://cweoutdgdpxca" path="res://map.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1ghiwr21lqmg" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b801l65xjgddt" path="res://item.tscn" id="2_0xm2m"]
 
+[sub_resource type="Curve2D" id="Curve2D_h2yge"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -26, 308, 0, 0, 0, 0, 144, 336, 0, 0, 0, 0, 277, 298, 0, 0, 0, 0, 460, 325, 0, 0, 0, 0, 545, 322, 0, 0, 0, 0, 696, 300, 0, 0, 0, 0, 778, 323, 0, 0, 0, 0, 867, 324, 0, 0, 0, 0, 999, 311, 0, 0, 0, 0, 1137, 315, 0, 0, 0, 0, 1216, 328, 0, 0, 0, 0, 1351, 306, 0, 0, 0, 0, 1464, 310, 0, 0, 0, 0, 1670, 278)
+}
+point_count = 14
+
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
+[node name="Map" parent="." unique_id=51882902 instance=ExtResource("1_h2yge")]
+scale = Vector2(10, 10)
+
 [node name="Player" parent="." unique_id=1238932236 instance=ExtResource("1_ig7tw")]
-position = Vector2(383, 201)
+position = Vector2(51, 447)
 
 [node name="Player2" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
 position = Vector2(745, 260)
 player = 2
 
-[node name="Item" parent="." unique_id=854807251 instance=ExtResource("2_0xm2m")]
-position = Vector2(526, 242)
+[node name="Waterstream" type="Path2D" parent="." unique_id=1427584249]
+curve = SubResource("Curve2D_h2yge")
+
+[node name="Item" parent="Waterstream" unique_id=1375219901 instance=ExtResource("2_0xm2m")]
+position = Vector2(28, 311)
