@@ -48,7 +48,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Swimming",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -59,6 +59,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
 }],
 "loop": 1,
 "name": &"Walking",
@@ -255,6 +258,7 @@ metadata/_edit_group_ = true
 material = SubResource("ShaderMaterial_1jxqw")
 sprite_frames = SubResource("SpriteFrames_kvc6a")
 animation = &"Walking"
+frame_progress = 0.31057036
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
