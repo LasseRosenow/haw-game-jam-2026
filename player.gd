@@ -58,11 +58,12 @@ func _process(delta: float) -> void:#
 	# Sprite Processing
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+		
+		$AnimatedSprite2D.flip_h = 0 >= velocity.x 
 		if _is_on_water():
 			$AnimatedSprite2D.play("Swimming")
 		else:
 			$AnimatedSprite2D.play("Walking")
-			$AnimatedSprite2D.flip_h = 0 >= velocity.x 
 	elif $AnimatedSprite2D.animation != "Idle":
 		if _is_on_water():
 			$AnimatedSprite2D.play("Floating")
@@ -78,7 +79,7 @@ func _process(delta: float) -> void:#
 		self.holding_item.position += velocity * delta
 
 	# Shader magic stuff
-	$AnimatedSprite2D.material.set_shader_parameter("blue_amount", clampf(wetness, 0.0, 0.5))
+	$AnimatedSprite2D.material.set_shader_parameter("blue_amount", clampf(wetness, 0.0, 0.35))
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Item":
