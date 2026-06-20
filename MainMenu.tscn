@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bqx4b22mqpbij"]
+
+[ext_resource type="Shader" uid="uid://ci8a8rjisxafi" path="res://MainMenu.tres" id="1_h7a2f"]
+[ext_resource type="Script" uid="uid://n5nfx35imen7" path="res://main_menu.gd" id="1_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://onrowh4x0m0g" path="res://imgs/GameJam.png" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://c4o6ovg7n3vxe" path="res://imgs/Pasted image.png" id="2_h7a2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiy7p"]
+shader = ExtResource("1_h7a2f")
+
+[node name="MainMenu" type="Control" unique_id=580234141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qoqlk")
+
+[node name="PastedImage" type="Sprite2D" parent="." unique_id=436465183]
+material = SubResource("ShaderMaterial_eiy7p")
+position = Vector2(566, 314)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h7a2f")
+
+[node name="GameJam" type="Sprite2D" parent="." unique_id=1900467590]
+position = Vector2(551.00006, 164)
+scale = Vector2(10, 10)
+texture = ExtResource("2_eiy7p")
+
+[node name="Start" type="Button" parent="." unique_id=1633059932]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 410.0
+offset_right = 750.0
+offset_bottom = 519.0
+text = "Start"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
