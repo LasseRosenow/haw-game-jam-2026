@@ -7,8 +7,7 @@ const MAX_SPEED = 400
 @export var interact_body: CharacterBody2D
 @export var holding_item: CharacterBody2D
 
-# Lowest is 1, so that we divide by 1
-var wetness: = 1
+var wetness: float = 0.0
 
 var screen_size: Vector2
 signal pickup
@@ -34,16 +33,16 @@ func _process(delta: float) -> void:#
 	if _is_on_water():
 		if not was_on_water:
 			is_on_water.emit()
-		if wetness < 10:
-			wetness += 1
+		if wetness <= 1.0:
+			wetness += 0.1
 	else:
 		if was_on_water:
 			is_on_land.emit()
-		if wetness > 1:
-			wetness -= 1
+		if wetness > 0.0:
+			wetness -= 0.1
 	
 	# Update the players speed based on wettness
-	speed = MAX_SPEED / wetness
+	speed = (MAX_SPEED - MAX_SPEED * (0.5 * wetness))
 		
 	# Input processing
 	if Input.is_action_pressed("move_right_player%s" % player):
@@ -93,9 +92,14 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Item":
 		print("Item Pickup Range")
 		self.interact_body = body
+		$ButtonsUI.show()
+		$ButtonAnimation.play("Hovering")
+		$ButtonsUI.play("Enter")
 		print("assigned")
 
 func _on_body_exited(body: Node2D) -> void:
 	if interact_body == body:
 		self.interact_body = null
+		$ButtonAnimation.stop()
+		$ButtonsUI.hide()
 		print("Left range")
