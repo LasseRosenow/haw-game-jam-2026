@@ -17,6 +17,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
 radius = 25.079872
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dujf2"]
+radius = 25.079872
+
 [node name="Item" type="CharacterBody2D" unique_id=1281719368]
 collision_layer = 2
 collision_mask = 0
@@ -33,5 +36,10 @@ shape = SubResource("CircleShape2D_ttk8k")
 [node name="Agent" type="NavigationAgent2D" parent="." unique_id=955659467]
 avoidance_enabled = true
 metadata/_edit_group_ = true
+
+[node name="WaterDetector" type="Area2D" parent="." unique_id=508560848]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector" unique_id=1475672076]
+shape = SubResource("CircleShape2D_dujf2")
 
 [connection signal="new_target" from="." to="." method="_on_new_target"]

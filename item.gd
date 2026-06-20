@@ -6,6 +6,11 @@ extends CharacterBody2D
 
 signal new_target(target: Node2D)
 
+# Water detection
+@onready var feet: Area2D = $WaterDetector
+func _is_on_water() -> bool:
+	return feet.has_overlapping_bodies()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

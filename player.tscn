@@ -191,9 +191,9 @@ animation = &"Idle"
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_h31yd")
 
-[node name="Feet" type="Area2D" parent="." unique_id=1761941379]
+[node name="WaterDetector" type="Area2D" parent="." unique_id=1761941379]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet" unique_id=781355950]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector" unique_id=781355950]
 position = Vector2(0.6666665, 13.166667)
 shape = SubResource("RectangleShape2D_anhma")
 

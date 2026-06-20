@@ -14,10 +14,7 @@ signal pickup
 
 
 # Water detection
-@onready var feet: Area2D = $Feet
-var was_on_water = false
-signal is_on_water
-signal is_on_land
+@onready var feet: Area2D = $WaterDetector
 func _is_on_water() -> bool:
 	return feet.has_overlapping_bodies()
 
@@ -103,12 +100,8 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_wet_cooldown_timeout() -> void:
 		# Detect if the player is on water or land
 	if _is_on_water():
-		if not was_on_water:
-			is_on_water.emit()
 		if wetness <= 1.0:
 			wetness += 0.1
 	else:
-		if was_on_water:
-			is_on_land.emit()
 		if wetness > 0.0:
 			wetness -= 0.05
