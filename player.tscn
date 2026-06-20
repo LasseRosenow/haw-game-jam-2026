@@ -34,6 +34,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
 size = Vector2(14, 22)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anhma"]
+size = Vector2(14.666667, 6.333334)
+
 [node name="Player" type="Area2D" unique_id=1238932236]
 scale = Vector2(3, 3)
 collision_mask = 3
@@ -48,6 +51,12 @@ frame_progress = 0.38925502
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_h31yd")
+
+[node name="Feet" type="Area2D" parent="." unique_id=1761941379]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet" unique_id=781355950]
+position = Vector2(0.6666665, 13.166667)
+shape = SubResource("RectangleShape2D_anhma")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

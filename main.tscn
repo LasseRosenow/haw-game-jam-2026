@@ -16,10 +16,13 @@ point_count = 14
 scale = Vector2(10, 10)
 
 [node name="Player" parent="." unique_id=1238932236 instance=ExtResource("1_ig7tw")]
-position = Vector2(51, 447)
+position = Vector2(139, 83)
+speed = 400
+player = 1
 
 [node name="Player2" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
-position = Vector2(745, 260)
+position = Vector2(966, 104)
+speed = 400
 player = 2
 
 [node name="Waterstream" type="Path2D" parent="." unique_id=1427584249]

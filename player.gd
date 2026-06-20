@@ -1,12 +1,24 @@
 extends Area2D
 
-@export var speed = 400
+const MAX_SPEED = 400
+
+@export var speed = MAX_SPEED
 @export var player = 1
 @export var interact_body: CharacterBody2D
 @export var holding_item: CharacterBody2D
 
+# Lowest is 1, so that we divide by 1
+var wetness: = 1
+
 var screen_size: Vector2
 signal pickup
+
+@onready var feet: Area2D = $Feet
+
+signal is_on_water
+
+func _is_on_water() -> bool:
+	return feet.has_overlapping_bodies()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +28,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:#
 	var velocity = Vector2.ZERO
 	
+	if _is_on_water():
+		if wetness < 10:
+			wetness += 1
+	else:
+		if wetness > 1:
+			wetness -= 1
+	
+	speed = MAX_SPEED / wetness
+		
 	# Input processing
 	if Input.is_action_pressed("move_right_player%s" % player):
 		velocity.x += 1
