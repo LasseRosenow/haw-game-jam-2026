@@ -17,17 +17,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
 radius = 25.079872
 
-[node name="Item" type="PathFollow2D" unique_id=1375219901]
+[node name="Item" type="CharacterBody2D" unique_id=1281719368]
 script = ExtResource("1_ttk8k")
-metadata/_edit_group_ = true
 
-[node name="Item" type="RigidBody2D" parent="." unique_id=854807251]
-freeze = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Item" unique_id=1143882475]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143882475]
 sprite_frames = SubResource("SpriteFrames_h31yd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Item" unique_id=903020546]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=903020546]
 shape = SubResource("CircleShape2D_ttk8k")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Item" unique_id=949824062]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=949824062]
+
+[node name="Agent" type="NavigationAgent2D" parent="." unique_id=955659467]
+metadata/_edit_group_ = true
+
+[connection signal="new_target" from="." to="." method="_on_new_target"]

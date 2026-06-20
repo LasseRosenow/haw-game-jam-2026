@@ -2,8 +2,8 @@ extends Area2D
 
 @export var speed = 400
 @export var player = 1
-@export var interact_body: Node2D
-@export var holding_item: Node2D
+@export var interact_body: CharacterBody2D
+@export var holding_item: CharacterBody2D
 
 var screen_size: Vector2
 signal pickup
@@ -30,6 +30,7 @@ func _process(delta: float) -> void:#
 			print("Tried to pick up but there was no object")
 		elif self.holding_item != null:
 			print("dropped")
+			self.holding_item.emit_signal("new_target", get_parent().get_node("Waterstream"))
 			self.holding_item = null
 		else:
 			print("Pickup up :)")
