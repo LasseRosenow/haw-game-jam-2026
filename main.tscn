@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chopvjoptxkg0"]
 
 [ext_resource type="PackedScene" uid="uid://1ghiwr21lqmg" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b801l65xjgddt" path="res://item.tscn" id="2_0xm2m"]
 
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
@@ -8,6 +9,8 @@
 position = Vector2(383, 201)
 
 [node name="Player2" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
-position = Vector2(1532, 804)
-scale = Vector2(9, 9)
+position = Vector2(745, 260)
 player = 2
+
+[node name="Item" parent="." unique_id=854807251 instance=ExtResource("2_0xm2m")]
+position = Vector2(526, 242)

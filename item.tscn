@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b801l65xjgddt"]
+
+[ext_resource type="Texture2D" uid="uid://bqccpv4iq68oi" path="res://imgs/banana.png" id="1_tnite"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h31yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tnite")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
+radius = 25.079872
+
+[node name="Item" type="RigidBody2D" unique_id=854807251]
+freeze = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143882475]
+sprite_frames = SubResource("SpriteFrames_h31yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=903020546]
+shape = SubResource("CircleShape2D_ttk8k")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=949824062]

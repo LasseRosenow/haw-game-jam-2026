@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ciqs8kuqsojsg" path="res://imgs/blabla-Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bo11ffukspmpx" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://csqebu5pj74s" path="res://imgs/Figure1.png" id="2_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -15,7 +16,7 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
+"texture": ExtResource("2_i3pqv")
 }],
 "loop": 1,
 "name": &"Idle",
@@ -48,3 +49,6 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_h31yd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
