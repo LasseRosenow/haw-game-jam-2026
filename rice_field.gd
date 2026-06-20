@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @export var type = "RiceField"
 
-signal interacted_with
+signal interacted_with(holding_item: bool, interactor: Area2D)
 @export_enum("dry", "stage1", "stage2", "harvested", "watered") var stage: String = "dry"
 
 # Called when the node enters the scene tree for the first time.
@@ -14,16 +14,25 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_interacted_with() -> void:
+func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	print("Somebody interacted with the rice field :D")
+	print(holding_item)
+	print(interactor)
 	if stage == "dry":
 		stage = "watered"
 		$ButtonUI.emit_signal("change_animation", "Wait")
 		$ButtonUI.emit_signal("start_animation", true)
 		$GrowTimer.start(5)
 		$AnimatedSprite2D.play(stage)
-	elif stage == "stage2":
+	elif stage == "stage2" and !holding_item:
 		stage = "harvested"
+		var item = preload("res://item.tscn").instantiate()
+		item.item_type = "rice"
+		item.name = "Item%s" % Time.get_unix_time_from_system()
+		#Awful
+		get_parent().get_parent().add_child(item)
+		interactor.pickup_item(item)
+		get_parent().add_child(item)
 		$AnimatedSprite2D.play("watered")
 		$ButtonUI.emit_signal("start_animation", false)
 		$GrowTimer.start(10)

@@ -33,12 +33,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
-radius = 25.079872
+radius = 15.333334
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dujf2"]
-radius = 25.079872
+radius = 15.333334
 
 [node name="Item" type="CharacterBody2D" unique_id=1281719368]
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ttk8k")
