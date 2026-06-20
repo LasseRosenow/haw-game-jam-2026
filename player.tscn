@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cvtd70714is0y" path="res://imgs/walking/Playerone-rotate-walk3-v0.png" id="10_op7ga"]
 [ext_resource type="Texture2D" uid="uid://2c2705wwuvxs" path="res://imgs/walking/Playerone-walk3-v2.png" id="10_u1c27"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="11_nvl01"]
+[ext_resource type="AudioStream" uid="uid://k5gxj440lnlm" path="res://audio/Freesound - Light Splashing Waves by PlagueDoctorCrow.mp3" id="15_606se"]
+[ext_resource type="AudioStream" uid="uid://c3404bmvt802w" path="res://audio/859304__nick_cymru__walking-gravel-2.wav" id="16_u1c27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
 resource_local_to_scene = true
@@ -119,6 +121,16 @@ shape = SubResource("RectangleShape2D_anhma")
 [node name="WetCooldown" type="Timer" parent="." unique_id=6230518]
 wait_time = 0.1
 autostart = true
+
+[node name="WaterSound" type="AudioStreamPlayer2D" parent="." unique_id=1764171312]
+stream = ExtResource("15_606se")
+volume_db = 8.398
+autoplay = true
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="." unique_id=583327773]
+stream = ExtResource("16_u1c27")
+volume_db = 8.398
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

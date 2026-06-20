@@ -7,6 +7,7 @@ const MAX_SPEED = 400
 @export var interact_body: CharacterBody2D
 @export var holding_item: CharacterBody2D
 @export var interactable_node: RigidBody2D
+@export var freeze: bool = false
 
 var wetness: float = 0.0
 var holding_item_og_zlayer: int
@@ -40,6 +41,9 @@ func drop_item(item: Node2D) -> void:
 func _process(delta: float) -> void:#
 	var velocity = Vector2.ZERO
 	
+	if freeze:
+		return
+	
 	# Update the players speed based on wettness
 	speed = (MAX_SPEED - MAX_SPEED * (0.5 * wetness))
 		
@@ -72,12 +76,20 @@ func _process(delta: float) -> void:#
 		$AnimatedSprite2D.flip_h = 0 >= velocity.x 
 		if _is_on_water():
 			$AnimatedSprite2D.play("Swimming")
+			if $WaterSound.stream_paused:
+				$WaterSound.stream_paused = false
+				$WalkSound.stream_paused = true
 		else:
+			if $WalkSound.stream_paused:
+				$WaterSound.stream_paused = true
+				$WalkSound.stream_paused = false
 			if velocity.y == 0.0:
 				$AnimatedSprite2D.play("WalkingSideways")
 			else:
 				$AnimatedSprite2D.play("Walking")
-	elif $AnimatedSprite2D.animation != "Idle":
+	else:
+		$WaterSound.stream_paused = true
+		$WalkSound.stream_paused = true
 		if _is_on_water():
 			$AnimatedSprite2D.play("Floating")
 		else:

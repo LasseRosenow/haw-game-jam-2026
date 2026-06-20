@@ -26,6 +26,12 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		$AnimatedSprite2D.play(stage)
 	elif stage == "stage2" and !holding_item:
 		stage = "harvested"
+		$Harvest.start(2)
+		interactor.freeze = true
+		$Cutting.play(0)
+		await $Harvest.timeout
+		$Cutting.stop()
+		interactor.freeze = false
 		var item = preload("res://item.tscn").instantiate()
 		item.item_type = "rice"
 		item.scale.x = 3.0

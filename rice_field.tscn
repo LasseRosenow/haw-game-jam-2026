@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds5adm35pegn3" path="res://imgs/tiles/woil-growstatefinal.png" id="3_d1wy8"]
 [ext_resource type="Texture2D" uid="uid://cah8uqlfkjtfe" path="res://imgs/tiles/soil-wet.png" id="4_2nwv8"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="6_d1wy8"]
+[ext_resource type="AudioStream" uid="uid://c50pfsejbv51i" path="res://audio/799515__throndronis__shaking-rice-in-container.wav" id="7_2nwv8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h31yd"]
 animations = [{
@@ -63,6 +64,13 @@ shape = SubResource("RectangleShape2D_6xs1s")
 [node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("6_d1wy8")]
 position = Vector2(0, 6)
 scale = Vector2(0.5, 0.5)
+
+[node name="Cutting" type="AudioStreamPlayer2D" parent="." unique_id=1829608131]
+stream = ExtResource("7_2nwv8")
+
+[node name="Harvest" type="Timer" parent="." unique_id=912313251]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]

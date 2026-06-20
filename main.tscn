@@ -7,7 +7,7 @@
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
 [node name="Map" parent="." unique_id=51882902 instance=ExtResource("1_h2yge")]
-scale = Vector2(10, 10)
+scale = Vector2(8, 8)
 
 [node name="PlayerRight" parent="." unique_id=1238932236 instance=ExtResource("1_ig7tw")]
 position = Vector2(883, 95)
