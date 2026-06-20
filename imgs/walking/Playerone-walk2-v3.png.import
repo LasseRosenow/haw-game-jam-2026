@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ykyq7j4d1sd5"
-path="res://.godot/imported/water.png-66a1f431ec6b9664b56bb6bc566f729e.ctex"
+uid="uid://cwukuq1o0lnuk"
+path="res://.godot/imported/Playerone-walk2-v3.png-d0d3112ce3086e2d59289275a20e6ba8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imgs/water.png"
-dest_files=["res://.godot/imported/water.png-66a1f431ec6b9664b56bb6bc566f729e.ctex"]
+source_file="res://imgs/walking/Playerone-walk2-v3.png"
+dest_files=["res://.godot/imported/Playerone-walk2-v3.png-d0d3112ce3086e2d59289275a20e6ba8.ctex"]
 
 [params]
 
