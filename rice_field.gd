@@ -28,6 +28,8 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		stage = "harvested"
 		var item = preload("res://item.tscn").instantiate()
 		item.item_type = "rice"
+		item.scale.x = 3.0
+		item.scale.y = 3.0
 		item.name = "Item%s" % Time.get_unix_time_from_system()
 		#Awful
 		get_parent().get_parent().add_child(item)
