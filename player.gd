@@ -72,12 +72,16 @@ func _process(delta: float) -> void:#
 		if _is_on_water():
 			$AnimatedSprite2D.play("Swimming")
 		else:
-			$AnimatedSprite2D.play("Walking")
+			if velocity.y == 0.0:
+				$AnimatedSprite2D.play("WalkingSideways")
+			else:
+				$AnimatedSprite2D.play("Walking")
 	elif $AnimatedSprite2D.animation != "Idle":
 		if _is_on_water():
 			$AnimatedSprite2D.play("Floating")
 		else:
-			$AnimatedSprite2D.play("Idle")
+			$AnimatedSprite2D.frame = 0
+			$AnimatedSprite2D.stop()
 	
 	# Position Updating
 	position += velocity * delta

@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://0of3eae72oo7" path="res://imgs/swimming/Swimmingmove1-v0.png" id="5_ivps1"]
 [ext_resource type="Texture2D" uid="uid://cl52uw1iqbvsh" path="res://imgs/swimming/Swimmingmove2-v0.png" id="6_urp6f"]
 [ext_resource type="Texture2D" uid="uid://bss47wqsaxvyl" path="res://imgs/swimming/Swimmingmove3-v0.png" id="7_bwjto"]
+[ext_resource type="Texture2D" uid="uid://dqmdbbkm2li81" path="res://imgs/walking/Playerone-rotate-v0.png" id="8_bwjto"]
 [ext_resource type="Texture2D" uid="uid://cwukuq1o0lnuk" path="res://imgs/walking/Playerone-walk2-v3.png" id="9_606se"]
+[ext_resource type="Texture2D" uid="uid://dyo3d55e3tqdd" path="res://imgs/walking/Playerone-rotate-walk1-v0.png" id="9_u1c27"]
+[ext_resource type="Texture2D" uid="uid://cvtd70714is0y" path="res://imgs/walking/Playerone-rotate-walk3-v0.png" id="10_op7ga"]
 [ext_resource type="Texture2D" uid="uid://2c2705wwuvxs" path="res://imgs/walking/Playerone-walk3-v2.png" id="10_u1c27"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="11_nvl01"]
 
@@ -66,6 +69,20 @@ animations = [{
 "loop": 1,
 "name": &"Walking",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_op7ga")
+}],
+"loop": 1,
+"name": &"WalkingSideways",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
@@ -85,8 +102,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 material = SubResource("ShaderMaterial_1jxqw")
 sprite_frames = SubResource("SpriteFrames_kvc6a")
-animation = &"Walking"
-frame_progress = 0.31057036
+animation = &"WalkingSideways"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
