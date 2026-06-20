@@ -35,6 +35,7 @@ func _process(delta: float) -> void:#
 		else:
 			print("Pickup up :)")
 			self.holding_item = interact_body
+			self.holding_item.emit_signal("new_target", null)
 		
 		
 	# Sprite Processing

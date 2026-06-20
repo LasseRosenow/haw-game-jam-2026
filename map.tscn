@@ -2,6 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bkdla2lsr2xke" path="res://imgs/tiles/sheet.png" id="1_c7s6e"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c7s6e"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
 0:0/0 = 0
@@ -15,26 +21,26 @@ texture = ExtResource("1_c7s6e")
 4:0/0 = 0
 4:0/0/custom_data_0 = "soil wet"
 5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.978445, 8, -1.978445, 8, 8, -8, 8)
+5:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c7s6e")
 5:0/0/custom_data_0 = "water border"
 5:0/0/custom_data_1 = true
 6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.978445, 8, -1.7985859, 8, 8, -8, 8)
+6:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c7s6e")
 6:0/0/custom_data_0 = "water border"
 6:0/0/custom_data_1 = true
 7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.983492, 1.9783783, -4.0102262, 2.036584, -3.0311944, 2.9675674, -2.9675674, 2.983832, -2.0839462, 8, -1.978445, 8, 8, -8, 8)
+7:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c7s6e")
 7:0/0/custom_data_0 = "water border"
 7:0/0/custom_data_1 = true
 8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c7s6e")
 8:0/0/custom_data_0 = "water"
 8:0/0/custom_data_1 = true
 9:0/0 = 0
 9:0/0/custom_data_0 = "soil finished"
 
 [sub_resource type="TileSet" id="TileSet_ihmvw"]
-physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 custom_data_layer_0/name = "tile_name"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "is_water"

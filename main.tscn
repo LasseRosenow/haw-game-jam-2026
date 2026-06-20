@@ -25,10 +25,9 @@ player = 2
 [node name="Waterstream" type="Path2D" parent="." unique_id=1427584249]
 curve = SubResource("Curve2D_h2yge")
 
-[node name="Item" parent="Waterstream" unique_id=1375219901 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+[node name="Item" parent="Waterstream" unique_id=1375219901 instance=ExtResource("2_0xm2m")]
 position = Vector2(237, 92.99994)
 rotation = 0.16324028
-target = NodePath("../../Target")
 
 [node name="Target" type="Node2D" parent="." unique_id=1070107381]
 position = Vector2(1598.3092, 305.05734)
