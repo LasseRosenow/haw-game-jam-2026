@@ -75,15 +75,12 @@ tile_set = SubResource("TileSet_ihmvw")
 
 [node name="RiceField" parent="." unique_id=933882624 instance=ExtResource("2_wijl4")]
 position = Vector2(31, 54)
-script = null
 
 [node name="RiceField2" parent="." unique_id=1061646417 instance=ExtResource("2_wijl4")]
 position = Vector2(48, 54)
-script = null
 
 [node name="RiceField3" parent="." unique_id=1651999154 instance=ExtResource("2_wijl4")]
 position = Vector2(65, 54)
-script = null
 
 [node name="WaterWalkway" parent="." unique_id=507188979 instance=ExtResource("3_e0an3")]
 position = Vector2(8, 25)
