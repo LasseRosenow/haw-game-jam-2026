@@ -26,4 +26,5 @@ player = 2
 curve = SubResource("Curve2D_h2yge")
 
 [node name="Item" parent="Waterstream" unique_id=1375219901 instance=ExtResource("2_0xm2m")]
-position = Vector2(28, 311)
+position = Vector2(-26, 308)
+rotation = 0.16324028
