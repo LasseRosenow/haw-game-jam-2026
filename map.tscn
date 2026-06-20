@@ -83,4 +83,4 @@ position = Vector2(48, 54)
 position = Vector2(65, 54)
 
 [node name="FishingWalkway" parent="." unique_id=507188979 instance=ExtResource("3_e0an3")]
-position = Vector2(8, 25)
+position = Vector2(4, 16.999998)
