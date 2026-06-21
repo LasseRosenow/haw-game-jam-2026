@@ -29,6 +29,7 @@ func _is_on_water() -> bool:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	$AnimatedSprite2D.play("Walking")
 	
 func get_new_item(item_type: String) -> void:
 	var item = preload("res://item.tscn").instantiate()
@@ -102,7 +103,9 @@ func _process(delta: float) -> void:#
 				$WalkSound.stream_paused = false
 			if velocity.y == 0.0:
 				$AnimatedSprite2D.play("WalkingSideways")
-			else:
+			else: if velocity.y < 0.0:
+				$AnimatedSprite2D.play("WalkingUpwards")
+			else: if velocity.y > 0.0:
 				$AnimatedSprite2D.play("Walking")
 	else:
 		$WaterSound.stream_paused = true

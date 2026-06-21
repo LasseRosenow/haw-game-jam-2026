@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cvtd70714is0y" path="res://imgs/walking/Playerone-rotate-walk3-v0.png" id="10_op7ga"]
 [ext_resource type="Texture2D" uid="uid://2c2705wwuvxs" path="res://imgs/walking/Playerone-walk3-v2.png" id="10_u1c27"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="11_nvl01"]
+[ext_resource type="Texture2D" uid="uid://bw56nifst7spn" path="res://imgs/walking/Playerone-back-v0.png" id="14_pylmc"]
 [ext_resource type="AudioStream" uid="uid://k5gxj440lnlm" path="res://audio/Freesound - Light Splashing Waves by PlagueDoctorCrow.mp3" id="15_606se"]
+[ext_resource type="Texture2D" uid="uid://bjburt0dfrf5g" path="res://imgs/walking/Playerbackwalk1.png" id="15_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://cpbviwdpkjof1" path="res://imgs/walking/Playerbackwalk3.png" id="16_5tmop"]
 [ext_resource type="AudioStream" uid="uid://c3404bmvt802w" path="res://audio/859304__nick_cymru__walking-gravel-2.wav" id="16_u1c27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
@@ -85,6 +88,20 @@ animations = [{
 "loop": 1,
 "name": &"WalkingSideways",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5tmop")
+}],
+"loop": 1,
+"name": &"WalkingUpwards",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
@@ -104,7 +121,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 material = SubResource("ShaderMaterial_1jxqw")
 sprite_frames = SubResource("SpriteFrames_kvc6a")
-animation = &"WalkingSideways"
+animation = &"WalkingUpwards"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
