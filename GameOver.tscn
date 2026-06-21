@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cokwiavng5pgi"]
+[gd_scene format=3 uid="uid://dpgy56gkuboue"]
 
 [ext_resource type="Script" uid="uid://blqu3c43padxi" path="res://game_over.gd" id="1_40baj"]
 [ext_resource type="Texture2D" uid="uid://cts0vy3syl2mb" path="res://imgs/tiles/Restaurant/Table.png" id="2_a1htc"]
