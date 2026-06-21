@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8skpq6cul7x4"]
+
+[ext_resource type="Script" uid="uid://6il7idkxrlt" path="res://stove.gd" id="1_3fsnh"]
+[ext_resource type="Texture2D" uid="uid://2mvhdhhxmo6x" path="res://imgs/tiles/Restaurant/Cooker.png" id="1_5phpl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsnh"]
+size = Vector2(27, 23)
+
+[node name="Stove" type="RigidBody2D" unique_id=180266280]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+script = ExtResource("1_3fsnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662846514]
+texture = ExtResource("1_5phpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=588948962]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_3fsnh")
