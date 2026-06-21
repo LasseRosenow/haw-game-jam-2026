@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://1ghiwr21lqmg"]
 
 [ext_resource type="Script" uid="uid://bo11ffukspmpx" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bmdo0g74n6syr" path="res://imgs/Player1.png" id="2_2wuci"]
 [ext_resource type="Shader" uid="uid://cx7sb6su8nghc" path="res://player.gdshader" id="2_dw050"]
 [ext_resource type="Texture2D" uid="uid://cn6ci4djngx4p" path="res://imgs/walking/Playerone-v1.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://by33g7uu0gibl" path="res://imgs/walking/Playerone-walk1.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://b640x8tfp4rve" path="res://imgs/Player2.png" id="3_iruf7"]
 [ext_resource type="Texture2D" uid="uid://dl0pmv5ic2iur" path="res://imgs/swimming/Swimmingsteady-v0.png" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://bvmcymn8680vq" path="res://imgs/Farming/Farming1.png" id="3_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://duwi5nrrshjcd" path="res://imgs/Farming/Farming2.png" id="4_2wuci"]
@@ -27,6 +29,25 @@
 [ext_resource type="Texture2D" uid="uid://bn3pfifk5t2pd" path="res://imgs/cooking/Cut2.png" id="18_dx0e4"]
 [ext_resource type="Texture2D" uid="uid://qvrxf4f14gjb" path="res://imgs/cooking/Cut3.png" id="19_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://jenx4vkecgl6" path="res://imgs/cooking/Cut4.png" id="20_7hik5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h31yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2wuci")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iruf7")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
 resource_local_to_scene = true
@@ -158,6 +179,11 @@ collision_layer = 1665
 collision_mask = 1667
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
+
+[node name="PlayerTag" type="AnimatedSprite2D" parent="." unique_id=1153371385]
+position = Vector2(1, -21)
+sprite_frames = SubResource("SpriteFrames_h31yd")
+animation = &"2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 material = SubResource("ShaderMaterial_1jxqw")

@@ -69,7 +69,7 @@ func _on_timer_timeout() -> void:
 			wants = "sushi"
 		
 		var customer: RigidBody2D = preload("res://customer.tscn").instantiate()
-		customer.set_up_customer(wants, 450 * speed_increasd_blabla)
+		customer.set_up_customer(wants, 850 * speed_increasd_blabla)
 		customer.position = node.position
 		customer.scale.x *= 2
 		customer.scale.y *= 2

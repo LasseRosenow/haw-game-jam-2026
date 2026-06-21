@@ -40,6 +40,7 @@ func reset_animation() -> void:
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	$AnimatedSprite2D.play("Walking")
+	$PlayerTag.animation = "%s" % player
 	
 func get_new_item(item_type: String) -> void:
 	var item = preload("res://item.tscn").instantiate()
