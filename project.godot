@@ -13,7 +13,8 @@ config_version=5
 config/name="game-jam"
 run/main_scene="uid://bqx4b22mqpbij"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="uid://bqccpv4iq68oi"
+config/icon="res://icon.svg"
+config/main_scene="uid://chopvjoptxkg0"
 
 [display]
 
