@@ -22,6 +22,7 @@ func _next_stage() -> void:
 	$RequestRiceTooltip.emit_signal("start_animation", !has_rice)
 	$ButtonUI.emit_signal("start_animation", false)
 	$Timer.stop()
+	player.reset_animation()
 	player = null
 
 func _reset() -> void:
@@ -29,6 +30,7 @@ func _reset() -> void:
 	$RequestRiceTooltip.emit_signal("start_animation", true)
 	$ButtonUI.emit_signal("start_animation", false)
 	$Timer.stop()
+	player.reset_animation()
 	player = null
 	has_fish = false
 	has_rice = false
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
 		if not Input.is_action_pressed("pickup_player%s" % player.player):
 			print("Failed to continue pressing :(")
 			player.get_new_item(currently_working_item)
+			player.reset_animation()
 			_next_stage()
 
 func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
@@ -50,6 +53,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		player = interactor
 		currently_working_item = player.holding_item.item_type
 		interactor.consume_item()
+		player.set_animation("Cutting")
 		$ButtonUI.emit_signal("change_animation", "ProgressBar")
 		$ButtonUI.emit_signal("start_animation", true)
 		$RequestFishTooltip.emit_signal("start_animation", false)
