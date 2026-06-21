@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://bjburt0dfrf5g" path="res://imgs/walking/Playerbackwalk1.png" id="15_pbfsw"]
 [ext_resource type="Texture2D" uid="uid://cpbviwdpkjof1" path="res://imgs/walking/Playerbackwalk3.png" id="16_5tmop"]
 [ext_resource type="AudioStream" uid="uid://c3404bmvt802w" path="res://audio/859304__nick_cymru__walking-gravel-2.wav" id="16_u1c27"]
+[ext_resource type="Texture2D" uid="uid://i6ea8ipm3rti" path="res://imgs/cooking/Cut1.png" id="17_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://bn3pfifk5t2pd" path="res://imgs/cooking/Cut2.png" id="18_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://qvrxf4f14gjb" path="res://imgs/cooking/Cut3.png" id="19_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://jenx4vkecgl6" path="res://imgs/cooking/Cut4.png" id="20_7hik5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
 resource_local_to_scene = true
@@ -102,6 +106,23 @@ animations = [{
 "loop": 1,
 "name": &"WalkingUpwards",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7hik5")
+}],
+"loop": 1,
+"name": &"cutting",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
@@ -121,7 +142,8 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 material = SubResource("ShaderMaterial_1jxqw")
 sprite_frames = SubResource("SpriteFrames_kvc6a")
-animation = &"WalkingUpwards"
+animation = &"cutting"
+frame_progress = 0.9906615
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(-2, 1)
