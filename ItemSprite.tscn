@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cod2ksyw1uwvc"]
+
+[ext_resource type="Texture2D" uid="uid://b1euc14ri1rvv" path="res://imgs/ingredient/algae.png" id="1_10dhk"]
+[ext_resource type="Texture2D" uid="uid://c1nhg0c7yhc2l" path="res://imgs/ingredient/cooked_rice.png" id="2_1pr4o"]
+[ext_resource type="Texture2D" uid="uid://diui53dfod0vi" path="res://imgs/ingredient/cut_fish.png" id="3_hries"]
+[ext_resource type="Texture2D" uid="uid://bqccpv4iq68oi" path="res://imgs/banana.png" id="4_ikibs"]
+[ext_resource type="Texture2D" uid="uid://bq6f7a7a8f6y3" path="res://imgs/ingredient/fish.png" id="5_njf8a"]
+[ext_resource type="Texture2D" path="res://imgs/ingredient/rice.png" id="6_vysvh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br1te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_10dhk")
+}],
+"loop": 1,
+"name": &"algae",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1pr4o")
+}],
+"loop": 1,
+"name": &"cooked_rice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hries")
+}],
+"loop": 1,
+"name": &"cut_fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ikibs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_njf8a")
+}],
+"loop": 1,
+"name": &"fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vysvh")
+}],
+"loop": 1,
+"name": &"rice",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=426472857]
+sprite_frames = SubResource("SpriteFrames_br1te")
+animation = &"cut_fish"

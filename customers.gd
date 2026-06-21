@@ -18,8 +18,8 @@ func update_highscore(addition: int) -> void:
 	$Highscore.text = "Highscore: %s" % highscore
 
 func remove_live() -> void:
+	$Lives.get_node("%s" % lives).hide()
 	lives -= 1
-	$Lives.text = "Lives: %s" % lives
 	
 	if lives == 0:
 		var game_over = preload("res://GameOver.tscn").instantiate()
@@ -51,8 +51,11 @@ func _on_timer_timeout() -> void:
 	if node.get_children().size() == 0:
 		print("Slot was free, filling")
 		
-		var customer = preload("res://customer.tscn").instantiate()
-		customer.set_up_customer("default", 100)
+		var customer: RigidBody2D = preload("res://customer.tscn").instantiate()
+		customer.set_up_customer("rice", 100)
+		customer.position = node.position
+		customer.scale.x *= 3
+		customer.scale.y *= 3
 		node.add_child(customer)
 	else:
 		print("Tried to add customer but slot was filled")

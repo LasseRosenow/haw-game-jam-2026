@@ -7,6 +7,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_40baj"]
 font_size = 96
 
+[sub_resource type="LabelSettings" id="LabelSettings_eksk4"]
+font_size = 28
+font_color = Color(0.52156866, 0.6431373, 1, 1)
+
 [node name="GameOver" type="Control" unique_id=673834420]
 layout_mode = 3
 anchors_preset = 0
@@ -18,31 +22,43 @@ scale = Vector2(27.340471, 27.340471)
 texture = ExtResource("2_a1htc")
 
 [node name="Table2" type="Sprite2D" parent="." unique_id=1709427163]
-position = Vector2(1031, 381)
+position = Vector2(1029, 381)
 scale = Vector2(27.340471, 27.340471)
 texture = ExtResource("2_a1htc")
 flip_h = true
 
 [node name="Highscore" type="Label" parent="." unique_id=2037258549]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 127.0
-offset_right = 869.0
-offset_bottom = 259.0
+offset_top = 128.0
+offset_right = 1153.0
+offset_bottom = 260.0
 text = "Highscore: 0"
 label_settings = SubResource("LabelSettings_40baj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1738233852]
 layout_mode = 0
 offset_left = 400.0
-offset_top = 345.99997
+offset_top = 328.0
 offset_right = 557.0
-offset_bottom = 376.99997
+offset_bottom = 366.74698
 scale = Vector2(2.3234842, 2.3234842)
-text = "Back to Main Menu"
+
+[node name="BackToMenu" type="Label" parent="MainMenuButton" unique_id=1332699408]
+layout_mode = 0
+offset_left = -499.2502
+offset_top = -48.203472
+offset_right = 653.74976
+offset_bottom = 83.796524
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_eksk4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1259510620]
 stream = ExtResource("3_eksk4")
 autoplay = true
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
