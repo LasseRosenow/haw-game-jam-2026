@@ -13,10 +13,15 @@ var wetness: float = 0.0
 var holding_item_og_zlayer: int
 var screen_size: Vector2
 
+# Fishing Walkway detection
+@onready var fishing_feet: Area2D = $FishingWalkwayDetector
+func _is_on_fishing_walkway() -> bool:
+	return fishing_feet.has_overlapping_areas()
+
 # Water detection
-@onready var feet: Area2D = $WaterDetector
+@onready var water_feet: Area2D = $WaterDetector
 func _is_on_water() -> bool:
-	return feet.has_overlapping_bodies()
+	return water_feet.has_overlapping_bodies() and not _is_on_fishing_walkway()
 
 @export var ground_y: float = 600.0   # Y at the bottom, no blue
 @export var top_y: float = 100.0      # Y at the top, full blue

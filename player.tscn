@@ -116,6 +116,14 @@ shape = SubResource("RectangleShape2D_h31yd")
 position = Vector2(0.6666665, 13.166667)
 shape = SubResource("RectangleShape2D_anhma")
 
+[node name="FishingWalkwayDetector" type="Area2D" parent="." unique_id=2138942]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingWalkwayDetector" unique_id=1406820325]
+position = Vector2(0.6666665, 13.166667)
+shape = SubResource("RectangleShape2D_anhma")
+
 [node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("11_nvl01")]
 
 [node name="WetCooldown" type="Timer" parent="." unique_id=6230518]
