@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8skpq6cul7x4"]
 
 [ext_resource type="Script" uid="uid://6il7idkxrlt" path="res://stove.gd" id="1_3fsnh"]
-[ext_resource type="Texture2D" uid="uid://2mvhdhhxmo6x" path="res://imgs/tiles/Restaurant/Cooker.png" id="1_5phpl"]
+[ext_resource type="Texture2D" uid="uid://b581d2tt4ck3w" path="res://imgs/tiles/Restaurant/Cooker.png" id="1_5phpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsnh"]
 size = Vector2(27, 23)
@@ -18,3 +18,5 @@ texture = ExtResource("1_5phpl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=588948962]
 position = Vector2(-0.5, -3.5)
 shape = SubResource("RectangleShape2D_3fsnh")
+
+[connection signal="interacted_with" from="." to="." method="_on_interacted_with"]

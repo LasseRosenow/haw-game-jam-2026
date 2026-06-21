@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://corhei7lvko2v"
-path="res://.godot/imported/rice.png-1377837003fb8b26dde25525cfed271c.ctex"
+uid="uid://diui53dfod0vi"
+path="res://.godot/imported/cut_fish.png-fcbb9c79916e1c700f03449cf9e6a532.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imgs/ingredient/rice.png"
-dest_files=["res://.godot/imported/rice.png-1377837003fb8b26dde25525cfed271c.ctex"]
+source_file="res://imgs/ingredient/cut_fish.png"
+dest_files=["res://.godot/imported/cut_fish.png-fcbb9c79916e1c700f03449cf9e6a532.ctex"]
 
 [params]
 
