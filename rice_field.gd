@@ -27,6 +27,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	elif stage == "stage2" and !holding_item:
 		stage = "harvested"
 		$Harvest.start(2)
+		interactor.set_animation("Farming")
 		interactor.freeze = true
 		
 		$Cutting.play(0)
@@ -37,6 +38,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		$AnimatedSprite2D.play("watered")
 		$ButtonUI.emit_signal("start_animation", false)
 		$GrowTimer.start(10)
+		interactor.reset_animation()
 
 
 func _on_grow_timer_timeout() -> void:
