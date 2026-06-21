@@ -17,18 +17,19 @@ position = Vector2(228, 55)
 
 [node name="Timer" type="Timer" parent="." unique_id=324856096]
 wait_time = 15.0
+autostart = true
 
 [node name="Highscore" type="Label" parent="." unique_id=221790753]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Highscore:"
+text = "Highscore: 0"
 
 [node name="Lives" type="Label" parent="." unique_id=1177113333]
 offset_left = 1.0
 offset_top = 22.0
 offset_right = 83.0
 offset_bottom = 45.0
-text = "Lives:"
+text = "Lives: 3"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=56680255]
 stream = ExtResource("2_q2d76")

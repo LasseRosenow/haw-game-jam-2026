@@ -23,13 +23,14 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	current_anger += 1.0
 	# Shader magic stuff
-	$AnimatedSprite2D.material.set_shader_parameter("red_amount", clampf(current_anger / anger_limit, 0.0, 0.95))
+	$AnimatedSprite2D.material.set_shader_parameter("red_amount", clampf(current_anger / anger_limit, 0.0, 0.75))
 
 	if current_anger >= anger_limit:
 		$Explosion.show()
 		$AnimationPlayer.play("explosion")
 		$ExplosionSound.play(0.0)
 		$Timer.stop()
+		get_parent().get_parent().emit_signal("failed_task")
 		await $ExplosionSound.finished
 		self.queue_free()
 		
@@ -38,9 +39,11 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		return
 		
 	if interactor.holding_item.item_type == wanted_food:
+		$AnimatedSprite2D.material.set_shader_parameter("red_amount", 0.0)
 		$Timer.stop()
 		interactor.consume_item()
 		$Yipeeee.play(0.0)
+		get_parent().get_parent().emit_signal("success_task", 1.0 - (current_anger/anger_limit))
 		await $Yipeeee.finished
 		self.queue_free()
 	

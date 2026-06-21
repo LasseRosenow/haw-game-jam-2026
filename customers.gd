@@ -11,6 +11,7 @@ signal success_task(rate: float)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Music.play(0.0)
+	_on_timer_timeout()
 
 func update_highscore(addition: int) -> void:
 	highscore += addition
@@ -26,9 +27,11 @@ func remove_live() -> void:
 		get_tree().change_scene_to_node(game_over)
 	elif lives == 2:
 		$Music.stream = AudioStreamWAV.load_from_file("res://audio/MainFaster.wav")
+		$Music.play(0.0)
 	elif lives == 1:
 		$Music.stream = AudioStreamWAV.load_from_file("res://audio/MainFastest.wav")		
-
+		$Music.play(0.0)
+		
 func _on_failed_task() -> void:
 	update_highscore(-50)
 	remove_live()
@@ -41,6 +44,15 @@ func _on_success_task(rate: float) -> void:
 func _on_music_finished() -> void:
 	$Music.play(0.0)
 
-
 func _on_timer_timeout() -> void:
 	var slot_to_check = randi() % 3 + 1
+	
+	var node = get_node("Slot%s" % slot_to_check)
+	if node.get_children().size() == 0:
+		print("Slot was free, filling")
+		
+		var customer = preload("res://customer.tscn").instantiate()
+		customer.set_up_customer("default", 100)
+		node.add_child(customer)
+	else:
+		print("Tried to add customer but slot was filled")

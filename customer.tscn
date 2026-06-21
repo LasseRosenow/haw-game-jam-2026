@@ -93,6 +93,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Explosion" type="Sprite2D" parent="." unique_id=348813796]
+visible = false
 scale = Vector2(0.015502934, 0.014911226)
 texture = ExtResource("6_eas7q")
 
