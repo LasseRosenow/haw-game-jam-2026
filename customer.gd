@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var wanted_food: String = "default"
-@export var anger_limit: float = 100.0
+@export var anger_limit: float = 1000.0
 @export var current_anger: float = 0.0
 @export var npc_version: int = 1
 
