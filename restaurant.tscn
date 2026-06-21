@@ -2161,6 +2161,7 @@ tile_map_data = PackedByteArray("AAD9/wQAAAAMAAcAAAD9/wUAAAAMAAgAAAD9/wYAAAAMAAk
 tile_set = SubResource("TileSet_aeb27")
 
 [node name="TileMapLayer5" type="TileMapLayer" parent="." unique_id=1743090445]
+visible = false
 tile_map_data = PackedByteArray("AAD+/wcAAwAAAAAAAAD+/wYAAwABAAAAAAD+/wUAAwACAAAAAAD+/wQAAwABAAAAAAD+/wMAAwACAAAAAAD+/wIAAwABAAAAAAD+/wEAAwACAAAAAAA=")
 tile_set = SubResource("TileSet_5axpr")
 
