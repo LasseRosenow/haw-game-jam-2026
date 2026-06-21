@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://ccbw3ouvswo1v" path="res://imgs/tiles/Restaurant/Cutting board.png" id="4_xpvah"]
 [ext_resource type="Texture2D" uid="uid://tjrcn8epwo0i" path="res://imgs/tiles/Restaurant/Knife.png" id="6_6dwcb"]
 [ext_resource type="Texture2D" uid="uid://dl1orq57c0y4" path="res://imgs/tilesetfromopensource/barrels.png" id="6_ilmu6"]
+[ext_resource type="PackedScene" uid="uid://dg6k6kml5k57t" path="res://sushi_board.tscn" id="6_mv1iw"]
 [ext_resource type="Texture2D" uid="uid://brkxor7406ufb" path="res://imgs/tiles/Restaurant/Sushi.png" id="7_ilmu6"]
 [ext_resource type="Texture2D" uid="uid://dop0oule8qj54" path="res://imgs/tiles/Restaurant/Table2.png" id="7_yamf8"]
 [ext_resource type="Texture2D" uid="uid://bq6f7a7a8f6y3" path="res://imgs/ingredient/fish.png" id="9_ilmu6"]
 [ext_resource type="Texture2D" uid="uid://d0fwv6d6a4m8d" path="res://imgs/tilesetfromopensource/farming_fishing.png" id="10_ji0jg"]
 [ext_resource type="Texture2D" uid="uid://bgdc8f4j7guis" path="res://imgs/tiles/Restaurant/Fence1.png" id="12_vs3kd"]
+[ext_resource type="PackedScene" uid="uid://cofuqfr0wswyu" path="res://cutting_board.tscn" id="12_yamf8"]
 [ext_resource type="Texture2D" uid="uid://dryk0fw8ypg76" path="res://imgs/tiles/Restaurant/Fence2.png" id="13_womg2"]
 [ext_resource type="Texture2D" uid="uid://ccpkitg8834c" path="res://imgs/tiles/Restaurant/Fence3.png" id="14_mv1iw"]
 [ext_resource type="Texture2D" uid="uid://7yc3wge6hbv0" path="res://imgs/Fence_tiles.png" id="15_obl2x"]
@@ -2107,7 +2109,7 @@ sources/3 = SubResource("TileSetAtlasSource_hadsv")
 tile_map_data = PackedByteArray("AAAAAAAADgAIAAAAAAABAAAADgAJAAAAAAACAAAADgAJAAAAAAADAAAADgAJAAAAAAAEAAAADgAJAAAAAAAFAAAADgAJAAAAAAAAAAEADgACAAAAAAABAAEADgADAAAAAAACAAEADgADAAAAAAADAAEADgADAAAAAAAEAAEADgADAAAAAAAFAAEADgADAAAAAAAAAAIADgAGAAAAAAABAAIADgAHAAAAAAACAAIADgAHAAAAAAADAAIADgAHAAAAAAAEAAIADgAHAAAAAAAFAAIADgAHAAAAAAAAAAMADgAEAAAAAAABAAMADgAFAAAAAAACAAMADgAFAAAAABADAAMADgAFAAAAABAEAAMADgAFAAAAABAFAAMADgAFAAAAAAAAAAQADgACAAAAAAABAAQADgADAAAAAAACAAQADgADAAAAABADAAQADgADAAAAABAEAAQADgADAAAAAAAFAAQADgADAAAAAAAGAAAADgAJAAAAAAAGAAEADgADAAAAAAAGAAIADgAHAAAAAAAGAAMADgAFAAAAABAGAAQADgADAAAAAAALAAAADgAJAAAAAAALAAEADgADAAAAAAALAAIADgAHAAAAAAALAAMADgAFAAAAAAALAAQADgADAAAAAAAMAAAADgAIAAAAABAMAAEADgACAAAAABAMAAIADgAGAAAAABAMAAMADgAEAAAAABAMAAQADgACAAAAABAHAAAADgAJAAAAAAAHAAEADgADAAAAAAAHAAIADgAHAAAAAAAHAAMADgAFAAAAAAAHAAQADgADAAAAAAAIAAAADgAJAAAAAAAIAAEADgADAAAAAAAIAAIADgAHAAAAAAAIAAMADgAFAAAAABAIAAQADgADAAAAABAJAAAADgAJAAAAAAAJAAEADgADAAAAAAAJAAIADgAHAAAAAAAJAAMADgAFAAAAABAJAAQADgADAAAAABAKAAAADgAJAAAAAAAKAAEADgADAAAAAAAKAAIADgAHAAAAAAAKAAMADgAFAAAAABAKAAQADgADAAAAAAAAAAgADgAAAAAAAAABAAgADgABAAAAAAACAAgADgABAAAAAAADAAgADgABAAAAAAAEAAgADgABAAAAABAFAAgADgABAAAAABAGAAgADgABAAAAABAHAAgADgABAAAAAAAIAAgADgABAAAAAAAJAAgADgABAAAAAAAKAAgADgABAAAAABALAAgADgABAAAAABAMAAgADgAAAAAAABAAAAUADgAGAAAAAAAAAAYADgAEAAAAAAAAAAcADgACAAAAAAABAAUADgAHAAAAAAABAAYADgAFAAAAAAABAAcADgADAAAAAAACAAUADgAHAAAAAAACAAYADgAFAAAAABACAAcADgADAAAAABADAAUADgAHAAAAAAADAAYADgAFAAAAABADAAcADgADAAAAABAEAAUADgAHAAAAAAAEAAYADgAFAAAAABAEAAcADgADAAAAAAAFAAUADgAHAAAAAAAFAAYADgAFAAAAAAAFAAcADgADAAAAAAAGAAUADgAHAAAAAAAGAAYADgAFAAAAABAGAAcADgADAAAAAAAHAAUADgAHAAAAAAAHAAYADgAFAAAAAAAHAAcADgADAAAAAAAIAAUADgAHAAAAAAAIAAYADgAFAAAAABAIAAcADgADAAAAABAJAAUADgAHAAAAAAAJAAYADgAFAAAAABAJAAcADgADAAAAABAKAAUADgAHAAAAAAAKAAYADgAFAAAAABAKAAcADgADAAAAAAALAAUADgAHAAAAAAALAAYADgAFAAAAAAALAAcADgADAAAAAAAMAAUADgAGAAAAABAMAAYADgAEAAAAABAMAAcADgACAAAAABA=")
 tile_set = SubResource("TileSet_64kar")
 
-[node name="Stove" parent="." unique_id=180266280 instance=ExtResource("2_1pkq2")]
+[node name="Stove" parent="." unique_id=624845086 instance=ExtResource("2_1pkq2")]
 position = Vector2(40, 24)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2038814804]
@@ -2161,3 +2163,9 @@ tile_set = SubResource("TileSet_aeb27")
 [node name="TileMapLayer5" type="TileMapLayer" parent="." unique_id=1743090445]
 tile_map_data = PackedByteArray("AAD+/wcAAwAAAAAAAAD+/wYAAwABAAAAAAD+/wUAAwACAAAAAAD+/wQAAwABAAAAAAD+/wMAAwACAAAAAAD+/wIAAwABAAAAAAD+/wEAAwACAAAAAAA=")
 tile_set = SubResource("TileSet_5axpr")
+
+[node name="CuttingBoard" parent="." unique_id=2049996971 instance=ExtResource("12_yamf8")]
+position = Vector2(88, 22)
+
+[node name="SushiBoard" parent="." unique_id=180266280 instance=ExtResource("6_mv1iw")]
+position = Vector2(155, 22)
