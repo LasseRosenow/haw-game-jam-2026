@@ -156,6 +156,12 @@ func _on_body_entered(body: Node2D) -> void:
 			self.interactable_node = body
 			$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
 			$ButtonUI.emit_signal("start_animation", true)
+	elif body.name.contains("CuttingBoard"):
+		print("Entered Cutting Board")
+		if body.is_interactable(holding_item.item_type if holding_item != null else ""):
+			self.interactable_node = body
+			$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+			$ButtonUI.emit_signal("start_animation", true)
 
 
 func _on_body_exited(body: Node2D) -> void:
