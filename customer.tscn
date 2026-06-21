@@ -88,6 +88,8 @@ animations = [{
 }]
 
 [node name="Customer" type="RigidBody2D" unique_id=2120573512]
+collision_layer = 2
+collision_mask = 3
 freeze = true
 script = ExtResource("1_co351")
 
