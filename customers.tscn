@@ -16,7 +16,7 @@ position = Vector2(173, 54)
 position = Vector2(228, 55)
 
 [node name="Timer" type="Timer" parent="." unique_id=324856096]
-wait_time = 15.0
+wait_time = 10.0
 autostart = true
 
 [node name="Highscore" type="Label" parent="." unique_id=221790753]

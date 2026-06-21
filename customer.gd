@@ -12,6 +12,7 @@ func _ready() -> void:
 	pass
 
 func set_up_customer(wanted_food: String, anger_limit: int)  -> void:
+	$AnimatedSprite2D.material.set_shader_parameter("red_amount", 0.0)
 	self.wanted_food = wanted_food
 	self.anger_limit = anger_limit
 	self.npc_version = randi() % 2 + 1
@@ -31,6 +32,10 @@ func _on_timer_timeout() -> void:
 		$AnimationPlayer.play("explosion")
 		$ExplosionSound.play(0.0)
 		$Timer.stop()
+		$Item.hide()
+		$Bubble.hide()
+		await $AnimationPlayer.animation_finished
+		self.hide()
 		get_parent().get_parent().emit_signal("failed_task")
 		await $ExplosionSound.finished
 		self.queue_free()
