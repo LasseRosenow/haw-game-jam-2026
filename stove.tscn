@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://6il7idkxrlt" path="res://stove.gd" id="1_3fsnh"]
 [ext_resource type="Texture2D" uid="uid://b581d2tt4ck3w" path="res://imgs/tiles/Restaurant/Cooker.png" id="1_5phpl"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_a3bkh"]
+[ext_resource type="AudioStream" uid="uid://dpx87gl3oq7ww" path="res://audio/open.wav" id="4_v45k4"]
+[ext_resource type="AudioStream" uid="uid://j1ejk2yf7dax" path="res://audio/rice_boil.wav" id="5_hbb0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsnh"]
 size = Vector2(27, 23)
@@ -24,6 +26,12 @@ shape = SubResource("RectangleShape2D_3fsnh")
 
 [node name="Timer" type="Timer" parent="." unique_id=1056544846]
 one_shot = true
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=2103737474]
+stream = ExtResource("4_v45k4")
+
+[node name="BoilSound" type="AudioStreamPlayer2D" parent="." unique_id=1947628797]
+stream = ExtResource("5_hbb0h")
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

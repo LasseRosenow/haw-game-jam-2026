@@ -17,6 +17,12 @@ shape = SubResource("RectangleShape2D_3fsnh")
 
 [node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("2_a7yno")]
 
+[node name="RequestFishTooltip" parent="." unique_id=1536279152 instance=ExtResource("2_a7yno")]
+position = Vector2(-13, 0)
+
+[node name="RequestRiceTooltip" parent="." unique_id=571523550 instance=ExtResource("2_a7yno")]
+position = Vector2(14, 0)
+
 [node name="Timer" type="Timer" parent="." unique_id=1056544846]
 one_shot = true
 
