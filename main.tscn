@@ -65,16 +65,16 @@ sources/5 = SubResource("TileSetAtlasSource_dg77c")
 scale = Vector2(8, 8)
 
 [node name="PlayerRight" parent="." unique_id=1238932236 instance=ExtResource("1_ig7tw")]
-position = Vector2(883, 95)
+position = Vector2(997, 559)
 scale = Vector2(2, 2)
 
 [node name="PlayerLeft" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
-position = Vector2(380, 97)
+position = Vector2(229, 178)
 scale = Vector2(2, 2)
 player = 2
 
 [node name="Item" parent="." unique_id=1375219901 instance=ExtResource("2_0xm2m")]
-position = Vector2(68.00003, 578)
+position = Vector2(1095, 42)
 
 [node name="Target" type="Node2D" parent="." unique_id=1070107381]
 position = Vector2(1598.3092, 305.05734)
