@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-		
+
 func _reset():
 	player.freeze = false
 	player = null
@@ -26,6 +26,6 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	print(interactor)
 	
 	player = interactor
-	#player.freeze = true
+	# player.freeze = true
 	
 	player.get_new_item("cooked_rice")
