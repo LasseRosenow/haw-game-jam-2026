@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cq4jrv280lxxa" path="res://imgs/tiles/Restaurant/Restaurantdraft.png" id="1_mtvav"]
 [ext_resource type="PackedScene" uid="uid://c8skpq6cul7x4" path="res://stove.tscn" id="2_1pkq2"]
+[ext_resource type="Texture2D" uid="uid://b8vu6ngrryran" path="res://imgs/restaurant_tiles.png" id="2_i0tqs"]
+[ext_resource type="Texture2D" uid="uid://cts0vy3syl2mb" path="res://imgs/tiles/Restaurant/Table.png" id="3_s0jpr"]
+[ext_resource type="Texture2D" uid="uid://ccbw3ouvswo1v" path="res://imgs/tiles/Restaurant/Cutting board.png" id="4_xpvah"]
+[ext_resource type="Texture2D" uid="uid://tjrcn8epwo0i" path="res://imgs/tiles/Restaurant/Knife.png" id="6_6dwcb"]
+[ext_resource type="Texture2D" uid="uid://brkxor7406ufb" path="res://imgs/tiles/Restaurant/Sushi.png" id="7_ilmu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pkq2"]
 texture = ExtResource("1_mtvav")
@@ -94,14 +99,122 @@ texture = ExtResource("1_mtvav")
 10:8/0 = 0
 11:8/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yamf8"]
+texture = ExtResource("2_i0tqs")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ji0jg"]
+texture = ExtResource("3_s0jpr")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hlp4a"]
+texture = ExtResource("4_xpvah")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_64kar"]
 sources/0 = SubResource("TileSetAtlasSource_1pkq2")
+sources/14 = SubResource("TileSetAtlasSource_yamf8")
+sources/15 = SubResource("TileSetAtlasSource_ji0jg")
+sources/16 = SubResource("TileSetAtlasSource_hlp4a")
+tile_proxies/coords_level = [[4, Vector2i(0, 0)], [14, Vector2i(0, 0)], [5, Vector2i(0, 0)], [14, Vector2i(1, 0)], [6, Vector2i(0, 0)], [14, Vector2i(2, 0)], [7, Vector2i(0, 0)], [14, Vector2i(3, 0)], [8, Vector2i(0, 0)], [14, Vector2i(4, 0)], [9, Vector2i(0, 0)], [14, Vector2i(5, 0)], [10, Vector2i(0, 0)], [14, Vector2i(6, 0)], [11, Vector2i(0, 0)], [14, Vector2i(7, 0)], [12, Vector2i(0, 0)], [14, Vector2i(8, 0)], [13, Vector2i(0, 0)], [14, Vector2i(9, 0)]]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vs3kd"]
+texture = ExtResource("3_s0jpr")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_womg2"]
+texture = ExtResource("4_xpvah")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o7exi"]
+sources/0 = SubResource("TileSetAtlasSource_vs3kd")
+sources/1 = SubResource("TileSetAtlasSource_womg2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mv1iw"]
+texture = ExtResource("4_xpvah")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d2fbw"]
+sources/0 = SubResource("TileSetAtlasSource_mv1iw")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obl2x"]
+texture = ExtResource("6_6dwcb")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5odq"]
+texture = ExtResource("7_ilmu6")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xv50v"]
+sources/0 = SubResource("TileSetAtlasSource_obl2x")
+sources/1 = SubResource("TileSetAtlasSource_p5odq")
 
 [node name="Restaurant" type="Node2D" unique_id=429886905]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1446804987]
-tile_map_data = PackedByteArray("AAD//wAAAAABAAIAAAD//wEAAAABAAMAAAD//wIAAAABAAQAAAD//wMAAAABAAUAAAD//wQAAAABAAYAAAD//wUAAAABAAcAAAAAAP7/AAACAAAAAAAAAP//AAACAAEAAAAAAAAAAAACAAIAAAAAAAEAAAACAAMAAAAAAAIAAAACAAQAAAAAAAMAAAACAAUAAAAAAAQAAAACAAYAAAAAAAUAAAACAAcAAAAAAAYAAAACAAgAAAABAP7/AAADAAAAAAABAP//AAADAAEAAAABAAAAAAADAAIAAAABAAEAAAADAAMAAAABAAIAAAADAAQAAAABAAMAAAADAAUAAAABAAQAAAADAAYAAAABAAUAAAADAAcAAAABAAYAAAADAAgAAAACAP//AAAEAAEAAAACAAAAAAAEAAIAAAACAAEAAAAEAAMAAAACAAIAAAAEAAQAAAACAAMAAAAEAAUAAAACAAQAAAAEAAYAAAACAAUAAAAEAAcAAAACAAYAAAAEAAgAAAADAP//AAAFAAEAAAADAAAAAAAFAAIAAAADAAEAAAAFAAMAAAADAAIAAAAFAAQAAAADAAMAAAAFAAUAAAADAAQAAAAFAAYAAAADAAUAAAAFAAcAAAADAAYAAAAFAAgAAAAEAP//AAAGAAEAAAAEAAAAAAAGAAIAAAAEAAEAAAAGAAMAAAAEAAIAAAAGAAQAAAAEAAMAAAAGAAUAAAAEAAQAAAAGAAYAAAAEAAUAAAAGAAcAAAAEAAYAAAAGAAgAAAAFAP//AAAHAAEAAAAFAAAAAAAHAAIAAAAFAAEAAAAHAAMAAAAFAAIAAAAHAAQAAAAFAAMAAAAHAAUAAAAFAAQAAAAHAAYAAAAFAAUAAAAHAAcAAAAFAAYAAAAHAAgAAAAGAP//AAAIAAEAAAAGAAAAAAAIAAIAAAAGAAEAAAAIAAMAAAAGAAIAAAAIAAQAAAAGAAMAAAAIAAUAAAAGAAQAAAAIAAYAAAAGAAUAAAAIAAcAAAAGAAYAAAAIAAgAAAAHAP//AAAJAAEAAAAHAAAAAAAJAAIAAAAHAAEAAAAJAAMAAAAHAAIAAAAJAAQAAAAHAAMAAAAJAAUAAAAHAAQAAAAJAAYAAAAHAAUAAAAJAAcAAAAHAAYAAAAJAAgAAAAIAP//AAAKAAEAAAAIAAAAAAAKAAIAAAAIAAEAAAAKAAMAAAAIAAIAAAAKAAQAAAAIAAMAAAAKAAUAAAAIAAQAAAAKAAYAAAAIAAUAAAAKAAcAAAAIAAYAAAAKAAgAAAAJAP//AAALAAEAAAAJAAAAAAALAAIAAAAJAAEAAAALAAMAAAAJAAIAAAALAAQAAAAJAAMAAAALAAUAAAAJAAQAAAALAAYAAAAJAAUAAAALAAcAAAAJAAYAAAALAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAADgAIAAAAAAABAAAADgAJAAAAAAACAAAADgAJAAAAAAADAAAADgAJAAAAAAAEAAAADgAJAAAAAAAFAAAADgAJAAAAAAAAAAEADgACAAAAAAABAAEADgADAAAAAAACAAEADgADAAAAAAADAAEADgADAAAAAAAEAAEADgADAAAAAAAFAAEADgADAAAAAAAAAAIADgAGAAAAAAABAAIADgAHAAAAAAACAAIADgAHAAAAAAADAAIADgAHAAAAAAAEAAIADgAHAAAAAAAFAAIADgAHAAAAAAAAAAMADgAEAAAAAAABAAMADgAFAAAAAAACAAMADgAFAAAAABADAAMADgAFAAAAABAEAAMADgAFAAAAABAFAAMADgAFAAAAAAAAAAQADgACAAAAAAABAAQADgADAAAAAAACAAQADgADAAAAABADAAQADgADAAAAABAEAAQADgADAAAAAAAFAAQADgADAAAAAAAAAAUADgAAAAAAAAABAAUADgABAAAAAAACAAUADgABAAAAAAADAAUADgABAAAAAAAEAAUADgABAAAAABAFAAUADgABAAAAABAGAAAADgAJAAAAAAAGAAEADgADAAAAAAAGAAIADgAHAAAAAAAGAAMADgAFAAAAABAGAAQADgADAAAAAAAGAAUADgABAAAAABALAAAADgAJAAAAAAALAAEADgADAAAAAAALAAIADgAHAAAAAAALAAMADgAFAAAAAAALAAQADgADAAAAAAALAAUADgABAAAAABAMAAAADgAIAAAAABAMAAEADgACAAAAABAMAAIADgAGAAAAABAMAAMADgAEAAAAABAMAAQADgACAAAAABAMAAUADgAAAAAAABAHAAAADgAJAAAAAAAHAAEADgADAAAAAAAHAAIADgAHAAAAAAAHAAMADgAFAAAAAAAHAAQADgADAAAAAAAHAAUADgABAAAAAAAIAAAADgAJAAAAAAAIAAEADgADAAAAAAAIAAIADgAHAAAAAAAIAAMADgAFAAAAABAIAAQADgADAAAAABAIAAUADgABAAAAAAAJAAAADgAJAAAAAAAJAAEADgADAAAAAAAJAAIADgAHAAAAAAAJAAMADgAFAAAAABAJAAQADgADAAAAABAJAAUADgABAAAAAAAKAAAADgAJAAAAAAAKAAEADgADAAAAAAAKAAIADgAHAAAAAAAKAAMADgAFAAAAABAKAAQADgADAAAAAAAKAAUADgABAAAAABA=")
 tile_set = SubResource("TileSet_64kar")
 
 [node name="Stove" parent="." unique_id=180266280 instance=ExtResource("2_1pkq2")]
 position = Vector2(40, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2038814804]
+visible = false
+texture = ExtResource("3_s0jpr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1155590664]
+position = Vector2(113, 51)
+rotation = -6.2831855
+texture = ExtResource("3_s0jpr")
+
+[node name="tablelayer" type="TileMapLayer" parent="." unique_id=1056626744]
+position = Vector2(1, 8)
+tile_map_data = PackedByteArray("AAAEAAEAAAAAAAEAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAEAAAAJAAAAAAABAAAAAAAJAAEAAAABAAEAAAAKAAAAAAABAAAAAAAKAAEAAAABAAEAAAALAAAAAAAAAAAAABALAAEAAAAAAAEAABAGAAAAAAAAAAAAABAGAAEAAAAAAAEAABAFAAAAAAABAAAAAAAFAAEAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_o7exi")
+
+[node name="onelayerhigher" type="TileMapLayer" parent="." unique_id=290225630]
+position = Vector2(1, 8)
+tile_map_data = PackedByteArray("AAAEAAAAAAAAAAAAAAAEAAEAAAAAAAEAAAAGAAAAAAAAAAAAABAGAAEAAAAAAAEAABAFAAAAAAABAAAAABAFAAEAAAABAAEAABA=")
+tile_set = SubResource("TileSet_d2fbw")
+
+[node name="twolayerhigher" type="TileMapLayer" parent="." unique_id=1783863577]
+position = Vector2(1, 8)
+scale = Vector2(0.71, 0.71)
+tile_map_data = PackedByteArray("AAAIAAEAAAAAAAAAAAAIAAIAAAAAAAEAAAAJAAEAAAABAAAAAAAJAAIAAAABAAEAAAAOAAAAAQAAAAAAAAAPAAAAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_xv50v")
+
+[node name="twolayerhigher2" type="TileMapLayer" parent="." unique_id=808761420]
+position = Vector2(-9, -12.999998)
+scale = Vector2(0.935, 0.935)
+tile_map_data = PackedByteArray("AAAKAAIAAQAAAAEAAAALAAIAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_xv50v")
