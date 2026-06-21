@@ -1,9 +1,11 @@
 extends Node2D
 
-@export var speed_increase_ratio: float = 0.95
+@export var speed_increase_ratio: float = 0.90
 @export var lives: int = 3
 @export var highscore: int = 0
 @export var success_base_points: int = 100
+
+var speed_increasd_blabla = 1.0
 
 signal failed_task
 signal success_task(rate: float)
@@ -40,6 +42,7 @@ func _on_failed_task() -> void:
 func _on_success_task(rate: float) -> void:
 	update_highscore(success_base_points * rate)
 	$Timer.wait_time *= speed_increase_ratio
+	speed_increasd_blabla *= speed_increase_ratio
 
 func _on_music_finished() -> void:
 	$Music.play(0.0)
@@ -51,8 +54,22 @@ func _on_timer_timeout() -> void:
 	if node.get_children().size() == 0:
 		print("Slot was free, filling")
 		
+		var wants_id = randi() % 10 + 1
+		var wants = "sushi"
+		
+		if wants_id == 1:
+			wants = "fish"
+		elif wants_id == 2:
+			wants = "rice"
+		elif wants_id == 3 or wants_id == 4:
+			wants = "cooked_rice"
+		elif wants_id == 5 or wants_id == 6:
+			wants = "cut_fish"
+		else:
+			wants = "sushi"
+		
 		var customer: RigidBody2D = preload("res://customer.tscn").instantiate()
-		customer.set_up_customer("rice", 1000)
+		customer.set_up_customer(wants, 450 * speed_increasd_blabla)
 		customer.position = node.position
 		customer.scale.x *= 2
 		customer.scale.y *= 2

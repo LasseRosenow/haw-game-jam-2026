@@ -24,5 +24,7 @@ one_shot = true
 [node name="Cutting" type="AudioStreamPlayer2D" parent="." unique_id=1856925342]
 stream = ExtResource("3_5hvax")
 
+[node name="RequestFishTooltip" parent="." unique_id=1137241636 instance=ExtResource("3_m357l")]
+
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

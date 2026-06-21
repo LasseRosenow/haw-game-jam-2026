@@ -13,7 +13,8 @@ func is_interactable(item_type: String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$RequestRiceTooltip.emit_signal("change_animation", "Rice")
+	$RequestRiceTooltip.emit_signal("start_animation", true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -30,6 +31,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		interactor.consume_item()
 		$ButtonUI.emit_signal("change_animation", "Wait")
 		$ButtonUI.emit_signal("start_animation", true)
+		$RequestRiceTooltip.emit_signal("start_animation", false)
 		$Timer.start(4)
 	else: if state == "cooking":
 		pass
@@ -38,6 +40,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		$OpenSound.play(0.0)
 		$ButtonUI.emit_signal("start_animation", false)
 		interactor.get_new_item("cooked_rice")
+		$RequestRiceTooltip.emit_signal("start_animation", true)
 
 func _on_timer_timeout() -> void:
 	print("Cooking finished")

@@ -8,9 +8,11 @@ func is_interactable(item_type: String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$RequestFishTooltip.emit_signal("change_animation", "Fish")
+	$RequestFishTooltip.emit_signal("start_animation", true)
 
 func _reset() -> void:
+	$RequestFishTooltip.emit_signal("start_animation", true)
 	$ButtonUI.emit_signal("start_animation", false)
 	$Timer.stop()
 	player = null
@@ -28,10 +30,11 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	print("Somebody interacted with the cutting board :D")
 	print(holding_item)
 	print(interactor)
-	
+
 	if player == null:
 		player = interactor
 		interactor.consume_item()
+		$RequestFishTooltip.emit_signal("start_animation", false)
 		$ButtonUI.emit_signal("change_animation", "ProgressBar")
 		$ButtonUI.emit_signal("start_animation", true)
 		$Cutting.play(0.0)
