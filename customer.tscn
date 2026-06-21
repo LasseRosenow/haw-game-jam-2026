@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c0nw3aovt4h3n" path="res://imgs/explosion.png" id="6_eas7q"]
 [ext_resource type="AudioStream" uid="uid://v78fot18gg1w" path="res://audio/explosion.mp3" id="7_0rcyg"]
 [ext_resource type="AudioStream" uid="uid://d3eawmrvsk588" path="res://audio/yipeeeeee.mp3" id="8_frhio"]
+[ext_resource type="Texture2D" uid="uid://cpf6bh7jcvi4l" path="res://imgs/thoughtbubble.png" id="9_551dw"]
+[ext_resource type="Texture2D" uid="uid://b1euc14ri1rvv" path="res://imgs/ingredient/algae.png" id="10_gwwo3"]
+[ext_resource type="Texture2D" uid="uid://c1nhg0c7yhc2l" path="res://imgs/ingredient/cooked_rice.png" id="11_bfkud"]
+[ext_resource type="Texture2D" uid="uid://diui53dfod0vi" path="res://imgs/ingredient/cut_fish.png" id="12_c6vkw"]
+[ext_resource type="Texture2D" uid="uid://bqccpv4iq68oi" path="res://imgs/banana.png" id="13_y43ix"]
+[ext_resource type="Texture2D" uid="uid://bq6f7a7a8f6y3" path="res://imgs/ingredient/fish.png" id="14_n26i4"]
+[ext_resource type="Texture2D" path="res://imgs/ingredient/rice.png" id="15_2pnoc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijqsr"]
 radius = 12.0
@@ -74,6 +81,68 @@ _data = {
 &"explosion": SubResource("Animation_0rcyg")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijqsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_551dw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br1te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gwwo3")
+}],
+"loop": 1,
+"name": &"algae",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_bfkud")
+}],
+"loop": 1,
+"name": &"cooked_rice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_c6vkw")
+}],
+"loop": 1,
+"name": &"cut_fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_y43ix")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_n26i4")
+}],
+"loop": 1,
+"name": &"fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_2pnoc")
+}],
+"loop": 1,
+"name": &"rice",
+"speed": 5.0
+}]
+
 [node name="Customer" type="RigidBody2D" unique_id=2120573512]
 freeze = true
 script = ExtResource("1_co351")
@@ -105,6 +174,15 @@ stream = ExtResource("7_0rcyg")
 
 [node name="Yipeeee" type="AudioStreamPlayer2D" parent="." unique_id=1577530903]
 stream = ExtResource("8_frhio")
+
+[node name="Bubble" type="AnimatedSprite2D" parent="." unique_id=1493140409]
+position = Vector2(1, -26)
+sprite_frames = SubResource("SpriteFrames_ijqsr")
+
+[node name="Item" type="AnimatedSprite2D" parent="." unique_id=426472857]
+position = Vector2(1, -29)
+sprite_frames = SubResource("SpriteFrames_br1te")
+animation = &"rice"
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

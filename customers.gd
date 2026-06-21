@@ -52,7 +52,7 @@ func _on_timer_timeout() -> void:
 		print("Slot was free, filling")
 		
 		var customer = preload("res://customer.tscn").instantiate()
-		customer.set_up_customer("default", 100)
+		customer.set_up_customer("rice", 100)
 		node.add_child(customer)
 	else:
 		print("Tried to add customer but slot was filled")

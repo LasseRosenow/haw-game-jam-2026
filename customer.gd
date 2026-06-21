@@ -15,6 +15,7 @@ func set_up_customer(wanted_food: String, anger_limit: int)  -> void:
 	self.wanted_food = wanted_food
 	self.anger_limit = anger_limit
 	self.npc_version = randi() % 2 + 1
+	$Item.animation = wanted_food
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
