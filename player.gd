@@ -1,6 +1,6 @@
 extends Area2D
 
-const MAX_SPEED = 400
+const MAX_SPEED = 200
 
 @export var speed = MAX_SPEED
 @export var player = 1
@@ -152,6 +152,12 @@ func _on_body_entered(body: Node2D) -> void:
 		$ButtonUI.emit_signal("start_animation", true)
 	elif body.name.contains("Stove"):
 		print("Entered Stove")
+		if body.is_interactable(holding_item.item_type if holding_item != null else ""):
+			self.interactable_node = body
+			$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+			$ButtonUI.emit_signal("start_animation", true)
+	elif body.name.contains("CuttingBoard"):
+		print("Entered Cutting Board")
 		if body.is_interactable(holding_item.item_type if holding_item != null else ""):
 			self.interactable_node = body
 			$ButtonUI.emit_signal("change_animation", "Enter%s" % player)

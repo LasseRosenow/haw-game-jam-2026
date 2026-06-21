@@ -2,6 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://crq1ymxeco84n" path="res://imgs/buttons.png" id="1_kfp7c"]
 [ext_resource type="Script" uid="uid://c1lo4e5af0na3" path="res://button_ui.gd" id="1_tsix3"]
+[ext_resource type="Texture2D" uid="uid://un13sc14g8ut" path="res://imgs/counter/Counter1.png" id="3_oere0"]
+[ext_resource type="Texture2D" uid="uid://ctxboe7yad7gr" path="res://imgs/counter/Counter2.png" id="4_roxcj"]
+[ext_resource type="Texture2D" uid="uid://cj6rfcdjliawk" path="res://imgs/counter/Counter3.png" id="5_kxsua"]
+[ext_resource type="Texture2D" uid="uid://4frc0jnby4sr" path="res://imgs/counter/Counter4.png" id="6_pd0t3"]
+[ext_resource type="Texture2D" uid="uid://c6u61ee1ruym" path="res://imgs/counter/Counter5.png" id="7_x8b36"]
+[ext_resource type="Texture2D" uid="uid://gc6rflrw0udy" path="res://imgs/counter/Counter6.png" id="8_j51nk"]
+[ext_resource type="Texture2D" uid="uid://u6s74ylbvh7v" path="res://imgs/counter/Counter7.png" id="9_oon7d"]
+[ext_resource type="Texture2D" uid="uid://b41dwqfhcvaam" path="res://imgs/counter/Counter8.png" id="10_kkcki"]
+[ext_resource type="Texture2D" uid="uid://8t1pupmphr1b" path="res://imgs/counter/Counter9.png" id="11_h7wha"]
+[ext_resource type="Texture2D" uid="uid://bsuvmchb87bk2" path="res://imgs/counter/Counter10.png" id="12_x1min"]
 
 [sub_resource type="Animation" id="Animation_1jxqw"]
 resource_name = "Hovering"
@@ -42,6 +52,14 @@ _data = {
 &"RESET": SubResource("Animation_dw050")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oere0"]
+atlas = ExtResource("1_kfp7c")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roxcj"]
+atlas = ExtResource("1_kfp7c")
+region = Rect2(288, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_egl0i"]
 atlas = ExtResource("1_kfp7c")
 region = Rect2(208, 0, 16, 16)
@@ -62,6 +80,14 @@ region = Rect2(80, 0, 16, 16)
 atlas = ExtResource("1_kfp7c")
 region = Rect2(96, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxsua"]
+atlas = ExtResource("1_kfp7c")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd0t3"]
+atlas = ExtResource("1_kfp7c")
+region = Rect2(240, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
 atlas = ExtResource("1_kfp7c")
 region = Rect2(16, 0, 16, 16)
@@ -73,6 +99,10 @@ region = Rect2(128, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
 atlas = ExtResource("1_kfp7c")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8b36"]
+atlas = ExtResource("1_kfp7c")
+region = Rect2(272, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("1_kfp7c")
@@ -100,6 +130,22 @@ region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oere0")
+}],
+"loop": 1,
+"name": &"Algae",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roxcj")
+}],
+"loop": 1,
+"name": &"CookedRice",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_egl0i")
@@ -142,6 +188,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kxsua")
+}],
+"loop": 1,
+"name": &"Fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd0t3")
+}],
+"loop": 1,
+"name": &"FishCut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ivps1")
 }],
 "loop": 1,
@@ -162,6 +224,49 @@ animations = [{
 }],
 "loop": 1,
 "name": &"None",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oere0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_roxcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kxsua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pd0t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x8b36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j51nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oon7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kkcki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h7wha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x1min")
+}],
+"loop": 1,
+"name": &"ProgressBar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8b36")
+}],
+"loop": 1,
+"name": &"Rice",
 "speed": 5.0
 }, {
 "frames": [{
@@ -227,7 +332,7 @@ z_index = 3
 z_as_relative = false
 position = Vector2(0, -27.892796)
 sprite_frames = SubResource("SpriteFrames_sweqy")
-animation = &"Wait"
+animation = &"CookedRice"
 
 [connection signal="change_animation" from="." to="." method="_on_change_animation"]
 [connection signal="start_animation" from="." to="." method="_on_start_animation"]

@@ -54,8 +54,8 @@ func _on_timer_timeout() -> void:
 		var customer: RigidBody2D = preload("res://customer.tscn").instantiate()
 		customer.set_up_customer("rice", 1000)
 		customer.position = node.position
-		customer.scale.x *= 3
-		customer.scale.y *= 3
+		customer.scale.x *= 2
+		customer.scale.y *= 2
 		node.add_child(customer)
 	else:
 		print("Tried to add customer but slot was filled")

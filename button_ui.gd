@@ -10,5 +10,6 @@ func _on_start_animation(enable: bool) -> void:
 	if enable:
 		$ButtonAnimation.play("Hovering")
 		$ButtonsUI.show()
+		$ButtonsUI.play()
 	else:
 		$ButtonsUI.hide()
