@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://4kcb3hbru2gy"]
+
+[ext_resource type="Script" uid="uid://dnkkraihr2821" path="res://customer.gd" id="1_co351"]
+[ext_resource type="Texture2D" uid="uid://c4yksutbk8cay" path="res://imgs/NPC/NPC1.png" id="1_f7asb"]
+[ext_resource type="Texture2D" uid="uid://be8bvkqspeko8" path="res://imgs/NPC/NPC2.png" id="2_co351"]
+[ext_resource type="Shader" uid="uid://b5mxwojjrd0l8" path="res://customer.gdshader" id="2_gn8fi"]
+[ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_gn8fi"]
+[ext_resource type="Texture2D" uid="uid://c0nw3aovt4h3n" path="res://imgs/explosion.png" id="6_eas7q"]
+[ext_resource type="AudioStream" uid="uid://v78fot18gg1w" path="res://audio/explosion.mp3" id="7_0rcyg"]
+[ext_resource type="AudioStream" uid="uid://d3eawmrvsk588" path="res://audio/yipeeeeee.mp3" id="8_frhio"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijqsr"]
+radius = 12.0
+height = 38.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unjj8"]
+shader = ExtResource("2_gn8fi")
+shader_parameter/red_amount = 0.0
+shader_parameter/red_color = Color(1, 0.2, 0.1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h31yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f7asb")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_co351")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_eas7q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.015502934, 0.014911226)]
+}
+
+[sub_resource type="Animation" id="Animation_0rcyg"]
+resource_name = "explosion"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.015502934, 0.014911226), Vector2(0.087829605, 0.079721235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frhio"]
+_data = {
+&"RESET": SubResource("Animation_eas7q"),
+&"explosion": SubResource("Animation_0rcyg")
+}
+
+[node name="Customer" type="RigidBody2D" unique_id=2120573512]
+freeze = true
+script = ExtResource("1_co351")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633613797]
+shape = SubResource("CapsuleShape2D_ijqsr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1011305562]
+material = SubResource("ShaderMaterial_unjj8")
+sprite_frames = SubResource("SpriteFrames_h31yd")
+animation = &"1"
+
+[node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("3_gn8fi")]
+
+[node name="Timer" type="Timer" parent="." unique_id=977764198]
+wait_time = 0.1
+autostart = true
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=348813796]
+scale = Vector2(0.015502934, 0.014911226)
+texture = ExtResource("6_eas7q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1684532668]
+libraries/ = SubResource("AnimationLibrary_frhio")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=1571085760]
+stream = ExtResource("7_0rcyg")
+
+[node name="Yipeeee" type="AudioStreamPlayer2D" parent="." unique_id=1577530903]
+stream = ExtResource("8_frhio")
+
+[connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

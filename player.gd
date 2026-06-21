@@ -42,6 +42,10 @@ func get_new_item(item_type: String) -> void:
 	pickup_item(item)
 	get_parent().add_child(item)
 
+func consume_item() -> void:
+	self.holding_item.queue_free()
+	self.holding_item = null
+
 func pickup_item(item: Node2D) -> void:
 	item.global_position = self.global_position
 	holding_item_og_zlayer = item.z_index
@@ -137,6 +141,9 @@ func _on_body_entered(body: Node2D) -> void:
 		print("assigned")
 	elif body.name.contains("RiceField"):
 		print("Entered RiceField")
+		self.interactable_node = body
+	elif body.name.contains("Customer"):
+		print("Next to customer")
 		self.interactable_node = body
 	elif body.name.contains("FishingWalkway"):
 		print("Entered Fishing Walkway")
