@@ -1,12 +1,30 @@
 [gd_scene format=4 uid="uid://cloj8ilay6bs6"]
 
 [ext_resource type="Script" uid="uid://du27a2l5fwkyw" path="res://fishing_walkway.gd" id="1_g0r1i"]
+[ext_resource type="Texture2D" uid="uid://h6xns4f3lg52" path="res://imgs/tiles/bridges/Bridge1.png" id="2_lj73q"]
+[ext_resource type="Texture2D" uid="uid://co7kudwwlciy1" path="res://imgs/tiles/bridges/Bridge2.png" id="3_84lfi"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_ud524"]
 [ext_resource type="Texture2D" uid="uid://cj03f1ecjsyhc" path="res://imgs/tiles/bridges/bridges_sheet.png" id="4_p1npn"]
 [ext_resource type="AudioStream" uid="uid://be56bq1klphcm" path="res://audio/fishing.wav" id="4_p8aoq"]
+[ext_resource type="Texture2D" uid="uid://gbmelgg638ur" path="res://imgs/tiles/bridges/Bridge3.png" id="5_k0rp2"]
+[ext_resource type="Texture2D" uid="uid://brfsldabs8bhb" path="res://imgs/tiles/bridges/Bridge4.png" id="6_hdw0a"]
+[ext_resource type="Texture2D" uid="uid://bnxmy506iaoye" path="res://imgs/tiles/bridges/Bridge5.png" id="7_grk3k"]
+[ext_resource type="Texture2D" uid="uid://dqpafwygxisr" path="res://imgs/tiles/bridges/Bridge6.png" id="8_3d6sy"]
+[ext_resource type="Texture2D" uid="uid://027r33dvxg1i" path="res://imgs/tiles/bridges/Bridge7.png" id="9_crwja"]
+[ext_resource type="Texture2D" uid="uid://de4vrkx51lyxl" path="res://imgs/tiles/bridges/Bridge8.png" id="10_fmjtt"]
+[ext_resource type="Texture2D" uid="uid://b31a503tffirt" path="res://imgs/tiles/bridges/Bridge9.png" id="11_607vy"]
+[ext_resource type="Texture2D" uid="uid://l3bha7rjl4pv" path="res://imgs/tiles/bridges/Bridge10.png" id="12_oj8ho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r83mo"]
-size = Vector2(8, 1.1920929e-07)
+size = Vector2(8, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ywsk"]
+texture = ExtResource("2_lj73q")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s54aa"]
+texture = ExtResource("3_84lfi")
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ud524"]
 texture = ExtResource("4_p1npn")
@@ -21,8 +39,64 @@ texture = ExtResource("4_p1npn")
 8:0/0 = 0
 9:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5go7"]
+texture = ExtResource("4_p1npn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwjml"]
+texture = ExtResource("5_k0rp2")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0ixc"]
+texture = ExtResource("6_hdw0a")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0bxi"]
+texture = ExtResource("7_grk3k")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rb8m"]
+texture = ExtResource("8_3d6sy")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3euwg"]
+texture = ExtResource("9_crwja")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_317sc"]
+texture = ExtResource("10_fmjtt")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f58l7"]
+texture = ExtResource("11_607vy")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c55hy"]
+texture = ExtResource("12_oj8ho")
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_dujf2"]
 sources/10 = SubResource("TileSetAtlasSource_ud524")
+sources/0 = SubResource("TileSetAtlasSource_0ywsk")
+sources/1 = SubResource("TileSetAtlasSource_s54aa")
+sources/2 = SubResource("TileSetAtlasSource_lwjml")
+sources/3 = SubResource("TileSetAtlasSource_y0ixc")
+sources/4 = SubResource("TileSetAtlasSource_y0bxi")
+sources/5 = SubResource("TileSetAtlasSource_4rb8m")
+sources/6 = SubResource("TileSetAtlasSource_3euwg")
+sources/7 = SubResource("TileSetAtlasSource_317sc")
+sources/8 = SubResource("TileSetAtlasSource_f58l7")
+sources/9 = SubResource("TileSetAtlasSource_c55hy")
+sources/11 = SubResource("TileSetAtlasSource_f5go7")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [10, Vector2i(0, 0)], [1, Vector2i(0, 0)], [10, Vector2i(1, 0)], [2, Vector2i(0, 0)], [10, Vector2i(2, 0)], [3, Vector2i(0, 0)], [10, Vector2i(3, 0)], [4, Vector2i(0, 0)], [10, Vector2i(4, 0)], [5, Vector2i(0, 0)], [10, Vector2i(5, 0)], [6, Vector2i(0, 0)], [10, Vector2i(6, 0)], [7, Vector2i(0, 0)], [10, Vector2i(7, 0)], [8, Vector2i(0, 0)], [10, Vector2i(8, 0)], [9, Vector2i(0, 0)], [10, Vector2i(9, 0)]]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dujf2"]
@@ -35,7 +109,7 @@ freeze = true
 script = ExtResource("1_g0r1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701455311]
-position = Vector2(6, 13)
+position = Vector2(6, 16)
 shape = SubResource("RectangleShape2D_r83mo")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=946506802]
@@ -48,7 +122,7 @@ tile_map_data = PackedByteArray("AAAAAAAACgAIAAAAAAAAAAEACgACAAAAAAAAAAIACgAGAAA
 tile_set = SubResource("TileSet_dujf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=388731928]
-position = Vector2(24.459553, 49.492035)
+position = Vector2(24.459562, 48.919125)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_dujf2")
 
