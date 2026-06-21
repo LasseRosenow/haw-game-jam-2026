@@ -52,7 +52,7 @@ func _on_timer_timeout() -> void:
 		print("Slot was free, filling")
 		
 		var customer: RigidBody2D = preload("res://customer.tscn").instantiate()
-		customer.set_up_customer("rice", 100)
+		customer.set_up_customer("rice", 1000)
 		customer.position = node.position
 		customer.scale.x *= 3
 		customer.scale.y *= 3
