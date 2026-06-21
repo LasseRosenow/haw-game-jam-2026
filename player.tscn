@@ -112,9 +112,8 @@ size = Vector2(14.666667, 6.333334)
 
 [node name="Player" type="Area2D" unique_id=1238932236]
 z_index = 2
-scale = Vector2(3, 3)
-collision_layer = 1537
-collision_mask = 1539
+collision_layer = 1665
+collision_mask = 1667
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 
@@ -124,7 +123,7 @@ sprite_frames = SubResource("SpriteFrames_kvc6a")
 animation = &"WalkingUpwards"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
-position = Vector2(-2, 1)
+position = Vector2(0.66666675, -1)
 shape = SubResource("RectangleShape2D_h31yd")
 
 [node name="WaterDetector" type="Area2D" parent="." unique_id=1761941379]
