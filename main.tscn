@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cweoutdgdpxca" path="res://map.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1ghiwr21lqmg" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b801l65xjgddt" path="res://item.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bfmq34sen40th" path="res://customers.tscn" id="4_1bvp3"]
 
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
@@ -22,3 +23,5 @@ position = Vector2(68.00003, 578)
 [node name="Target" type="Node2D" parent="." unique_id=1070107381]
 position = Vector2(1598.3092, 305.05734)
 scale = Vector2(10, 10)
+
+[node name="Customers" parent="." unique_id=844352420 instance=ExtResource("4_1bvp3")]

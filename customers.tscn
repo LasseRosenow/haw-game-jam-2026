@@ -1,7 +1,39 @@
 [gd_scene format=3 uid="uid://bfmq34sen40th"]
 
-[ext_resource type="PackedScene" uid="uid://4kcb3hbru2gy" path="res://customer.tscn" id="1_thu2g"]
+[ext_resource type="Script" uid="uid://ctk6b5i2cnv5f" path="res://customers.gd" id="1_thu2g"]
+[ext_resource type="AudioStream" uid="uid://chxp5mxyq7c1k" path="res://audio/GameNormal.wav" id="2_q2d76"]
 
 [node name="Customers" type="Node2D" unique_id=844352420]
+script = ExtResource("1_thu2g")
 
-[node name="Customer" parent="." unique_id=2120573512 instance=ExtResource("1_thu2g")]
+[node name="Slot1" type="Node2D" parent="." unique_id=621484907]
+position = Vector2(119, 54)
+
+[node name="Slot2" type="Node2D" parent="." unique_id=153206002]
+position = Vector2(173, 54)
+
+[node name="Slot3" type="Node2D" parent="." unique_id=2072592392]
+position = Vector2(228, 55)
+
+[node name="Timer" type="Timer" parent="." unique_id=324856096]
+wait_time = 15.0
+
+[node name="Highscore" type="Label" parent="." unique_id=221790753]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Highscore:"
+
+[node name="Lives" type="Label" parent="." unique_id=1177113333]
+offset_left = 1.0
+offset_top = 22.0
+offset_right = 83.0
+offset_bottom = 45.0
+text = "Lives:"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=56680255]
+stream = ExtResource("2_q2d76")
+
+[connection signal="failed_task" from="." to="." method="_on_failed_task"]
+[connection signal="success_task" from="." to="." method="_on_success_task"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cokwiavng5pgi"]
+
+[ext_resource type="Script" uid="uid://blqu3c43padxi" path="res://game_over.gd" id="1_40baj"]
+[ext_resource type="Texture2D" uid="uid://cts0vy3syl2mb" path="res://imgs/tiles/Restaurant/Table.png" id="2_a1htc"]
+[ext_resource type="AudioStream" uid="uid://chxp5mxyq7c1k" path="res://audio/GameNormal.wav" id="3_eksk4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_40baj"]
+font_size = 96
+
+[node name="GameOver" type="Control" unique_id=673834420]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_40baj")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=1453735210]
+position = Vector2(155.99995, 380.99994)
+scale = Vector2(27.340471, 27.340471)
+texture = ExtResource("2_a1htc")
+
+[node name="Table2" type="Sprite2D" parent="." unique_id=1709427163]
+position = Vector2(1031, 381)
+scale = Vector2(27.340471, 27.340471)
+texture = ExtResource("2_a1htc")
+flip_h = true
+
+[node name="Highscore" type="Label" parent="." unique_id=2037258549]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 127.0
+offset_right = 869.0
+offset_bottom = 259.0
+text = "Highscore: 0"
+label_settings = SubResource("LabelSettings_40baj")
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1738233852]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 345.99997
+offset_right = 557.0
+offset_bottom = 376.99997
+scale = Vector2(2.3234842, 2.3234842)
+text = "Back to Main Menu"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1259510620]
+stream = ExtResource("3_eksk4")
+autoplay = true
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
