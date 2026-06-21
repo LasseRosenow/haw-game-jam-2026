@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dnkkraihr2821" path="res://customer.gd" id="1_co351"]
 [ext_resource type="Texture2D" uid="uid://c4yksutbk8cay" path="res://imgs/NPC/NPC1.png" id="1_f7asb"]
 [ext_resource type="Texture2D" uid="uid://be8bvkqspeko8" path="res://imgs/NPC/NPC2.png" id="2_co351"]
-[ext_resource type="Shader" uid="uid://b5mxwojjrd0l8" path="res://customer.gdshader" id="2_gn8fi"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_gn8fi"]
 [ext_resource type="Texture2D" uid="uid://c0nw3aovt4h3n" path="res://imgs/explosion.png" id="6_eas7q"]
 [ext_resource type="AudioStream" uid="uid://v78fot18gg1w" path="res://audio/explosion.mp3" id="7_0rcyg"]
@@ -15,8 +14,19 @@
 radius = 12.0
 height = 38.0
 
+[sub_resource type="Shader" id="Shader_551dw"]
+code = "shader_type canvas_item;
+uniform float red_amount : hint_range(0.0, 1.0) = 0.0;
+uniform vec4 red_color : source_color = vec4(1.0, 0.2, 0.1, 1.0);
+void fragment() {
+	
+    vec4 tex = texture(TEXTURE, UV);
+    COLOR.rgb = mix(tex.rgb, red_color.rgb, red_amount);
+    COLOR.a = tex.a;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_unjj8"]
-shader = ExtResource("2_gn8fi")
+shader = SubResource("Shader_551dw")
 shader_parameter/red_amount = 0.0
 shader_parameter/red_color = Color(1, 0.2, 0.1, 1)
 

@@ -9,7 +9,7 @@ signal interacted_with(holding_item: bool, interactor: Area2D)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$AnimatedSprite2D.material.resource_local_to_scene = true
 
 func set_up_customer(wanted_food: String, anger_limit: int)  -> void:
 	$AnimatedSprite2D.material.set_shader_parameter("red_amount", 0.0)
