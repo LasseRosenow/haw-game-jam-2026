@@ -17,7 +17,7 @@ position = Vector2(380, 97)
 player = 2
 
 [node name="Item" parent="." unique_id=1375219901 instance=ExtResource("2_0xm2m")]
-position = Vector2(441.99997, 124.99997)
+position = Vector2(68.00003, 578)
 
 [node name="Target" type="Node2D" parent="." unique_id=1070107381]
 position = Vector2(1598.3092, 305.05734)
