@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			_next_button_task()
 
 func _next_button_task():
-	if counter < 2:
+	if counter < 3:
 		expected_key_index = random_key_index()
 		counter += 1
 		$ButtonUI.emit_signal("change_animation", "%s%s" % [BUTTON_KEYS[expected_key_index], player.player])
