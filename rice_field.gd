@@ -32,15 +32,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		await $Harvest.timeout
 		$Cutting.stop()
 		interactor.freeze = false
-		var item = preload("res://item.tscn").instantiate()
-		item.item_type = "rice"
-		item.scale.x = 3.0
-		item.scale.y = 3.0
-		item.name = "Item%s" % Time.get_unix_time_from_system()
-		#Awful
-		get_parent().get_parent().add_child(item)
-		interactor.pickup_item(item)
-		get_parent().add_child(item)
+		interactor.get_new_item("rice")
 		$AnimatedSprite2D.play("watered")
 		$ButtonUI.emit_signal("start_animation", false)
 		$GrowTimer.start(10)

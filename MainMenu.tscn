@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://n5nfx35imen7" path="res://main_menu.gd" id="1_qoqlk"]
 [ext_resource type="Texture2D" uid="uid://onrowh4x0m0g" path="res://imgs/GameJam.png" id="2_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://c4o6ovg7n3vxe" path="res://imgs/Pasted image.png" id="2_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://vfecs1atmw0x" path="res://imgs/Tischdingens.png" id="4_7r1g0"]
+[ext_resource type="AudioStream" uid="uid://df2gmqek03rrr" path="res://audio/MainMenu.wav" id="5_iwfq2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eiy7p"]
 shader = ExtResource("1_h7a2f")
@@ -19,9 +21,14 @@ script = ExtResource("1_qoqlk")
 
 [node name="PastedImage" type="Sprite2D" parent="." unique_id=436465183]
 material = SubResource("ShaderMaterial_eiy7p")
-position = Vector2(566, 314)
-scale = Vector2(0.5, 0.5)
+position = Vector2(579, 324)
+scale = Vector2(0.5115453, 0.51607716)
 texture = ExtResource("2_h7a2f")
+
+[node name="Tischdingens" type="Sprite2D" parent="." unique_id=208122151]
+position = Vector2(566, 458.49997)
+scale = Vector2(24.5, -3.34375)
+texture = ExtResource("4_7r1g0")
 
 [node name="GameJam" type="Sprite2D" parent="." unique_id=1900467590]
 position = Vector2(551.00006, 164)
@@ -30,10 +37,22 @@ texture = ExtResource("2_eiy7p")
 
 [node name="Start" type="Button" parent="." unique_id=1633059932]
 layout_mode = 0
-offset_left = 356.0
-offset_top = 410.0
-offset_right = 750.0
-offset_bottom = 519.0
+offset_left = 345.0
+offset_top = 405.0
+offset_right = 739.0
+offset_bottom = 514.0
 text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=488888574]
+stream = ExtResource("5_iwfq2")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1052565822]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 622.0
+offset_right = 1130.0
+offset_bottom = 824.0
+text = "Credits: Lasse, Zhao, Tom                                                                                               Some Sound Effects by Throndronis, Nickcymru & PlagueDoctorCrow"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

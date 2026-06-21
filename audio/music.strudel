@@ -1,0 +1,14 @@
+setcpm(126)  
+
+$:chord(`<~ Am@2 D@2 Em@3 F#m G@2 Bm@2 A@2>`)
+  .anchor("e6").voicing()
+  .layer(x=>x.s("gm_acoustic_guitar_nylon").hpf(280).gain(.18).attack(.1).release(.25).pan(.63))
+
+$: n(`<0 [~ 0] 4 7 3 [~ 4] 0 [~ 8] 7 4 [-4@3 ~] [-1@3 ~]@2 [~ 3] [~ 4] 0 ~6>`)
+  .scale("e3:dorian")
+  .layer(x=>x.s("gm_electric_guitar_jazz:1").lpf(2300).gain(.3),
+         x=>x.s("gm_acoustic_bass:1").lpf(90).gain(.43).transpose(10))
+
+$: s("bd").gain(.03)
+all(x=>x.room(.25)
+)
