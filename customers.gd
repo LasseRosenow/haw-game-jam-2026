@@ -18,8 +18,8 @@ func update_highscore(addition: int) -> void:
 	$Highscore.text = "Highscore: %s" % highscore
 
 func remove_live() -> void:
+	$Lives.get_node("%s" % lives).hide()
 	lives -= 1
-	$Lives.text = "Lives: %s" % lives
 	
 	if lives == 0:
 		var game_over = preload("res://GameOver.tscn").instantiate()
