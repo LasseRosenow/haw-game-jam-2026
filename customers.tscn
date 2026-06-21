@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctk6b5i2cnv5f" path="res://customers.gd" id="1_thu2g"]
 [ext_resource type="AudioStream" uid="uid://chxp5mxyq7c1k" path="res://audio/GameNormal.wav" id="2_q2d76"]
+[ext_resource type="Texture2D" uid="uid://c0kgny7awv5pf" path="res://imgs/hearts.png" id="3_ulet7"]
 
 [node name="Customers" type="Node2D" unique_id=844352420]
 script = ExtResource("1_thu2g")
@@ -20,19 +21,38 @@ wait_time = 10.0
 autostart = true
 
 [node name="Highscore" type="Label" parent="." unique_id=221790753]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Highscore: 0"
 
-[node name="Lives" type="Label" parent="." unique_id=1177113333]
-offset_left = 1.0
-offset_top = 22.0
-offset_right = 83.0
-offset_bottom = 45.0
-text = "Lives: 3"
-
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=56680255]
 stream = ExtResource("2_q2d76")
+
+[node name="Lives" type="Control" parent="." unique_id=1298215586]
+top_level = true
+z_index = 50
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 39.0
+offset_bottom = 23.0
+
+[node name="1" type="Sprite2D" parent="Lives" unique_id=369534342]
+position = Vector2(18, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ulet7")
+
+[node name="2" type="Sprite2D" parent="Lives" unique_id=115198920]
+position = Vector2(53, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ulet7")
+
+[node name="3" type="Sprite2D" parent="Lives" unique_id=926001555]
+position = Vector2(88, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ulet7")
 
 [connection signal="failed_task" from="." to="." method="_on_failed_task"]
 [connection signal="success_task" from="." to="." method="_on_success_task"]
