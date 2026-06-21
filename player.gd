@@ -40,6 +40,7 @@ func reset_animation() -> void:
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	$AnimatedSprite2D.play("Walking")
+	$PlayerTag.animation = "%s" % player
 	
 func get_new_item(item_type: String) -> void:
 	var item = preload("res://item.tscn").instantiate()
@@ -159,6 +160,8 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.name.contains("Customer"):
 		print("Next to customer")
 		self.interactable_node = body
+		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+		$ButtonUI.emit_signal("start_animation", true)
 	elif body.name.contains("FishingWalkway"):
 		print("Entered Fishing Walkway")
 		self.interactable_node = body
