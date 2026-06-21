@@ -153,6 +153,9 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.name.contains("RiceField"):
 		print("Entered RiceField")
 		self.interactable_node = body
+		if body.is_interactable():
+			$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+			$ButtonUI.emit_signal("start_animation", true)
 	elif body.name.contains("Customer"):
 		print("Next to customer")
 		self.interactable_node = body

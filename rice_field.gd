@@ -5,6 +5,9 @@ extends RigidBody2D
 signal interacted_with(holding_item: bool, interactor: Area2D)
 @export_enum("dry", "stage1", "stage2", "harvested", "watered") var stage: String = "dry"
 
+func is_interactable() -> bool:
+	return stage == "dry" or stage == "stage2"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$ButtonUI.emit_signal("change_animation", "Water")
