@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cofuqfr0wswyu"]
 
 [ext_resource type="Script" uid="uid://2d263ay1sohu" path="res://cutting_board.gd" id="1_5hvax"]
+[ext_resource type="AudioStream" uid="uid://bhc8w5m0a3iyw" path="res://audio/cutting.wav" id="3_5hvax"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_m357l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsnh"]
@@ -19,6 +20,9 @@ shape = SubResource("RectangleShape2D_3fsnh")
 
 [node name="Timer" type="Timer" parent="." unique_id=1056544846]
 one_shot = true
+
+[node name="Cutting" type="AudioStreamPlayer2D" parent="." unique_id=1856925342]
+stream = ExtResource("3_5hvax")
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

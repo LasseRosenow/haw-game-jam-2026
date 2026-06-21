@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bqx4b22mqpbij"]
 
-[ext_resource type="Shader" uid="uid://ci8a8rjisxafi" path="res://MainMenu.tres" id="1_h7a2f"]
 [ext_resource type="Script" uid="uid://n5nfx35imen7" path="res://main_menu.gd" id="1_qoqlk"]
 [ext_resource type="Texture2D" uid="uid://onrowh4x0m0g" path="res://imgs/GameJam.png" id="2_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://c4o6ovg7n3vxe" path="res://imgs/Pasted image.png" id="2_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://vfecs1atmw0x" path="res://imgs/Tischdingens.png" id="4_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://bo58bsqgef40x" path="res://imgs/food/sushi.png" id="5_fimr5"]
 [ext_resource type="AudioStream" uid="uid://df2gmqek03rrr" path="res://audio/MainMenu.wav" id="5_iwfq2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiy7p"]
-shader = ExtResource("1_h7a2f")
+[ext_resource type="Texture2D" uid="uid://diui53dfod0vi" path="res://imgs/ingredient/cut_fish.png" id="6_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://cluc3bb72jp4o" path="res://imgs/ingredient/cooked_rice.png" id="7_afec1"]
+[ext_resource type="Texture2D" uid="uid://by3vb5pyikmxa" path="res://imgs/ingredient/rice.png" id="8_31qfy"]
+[ext_resource type="Texture2D" uid="uid://bq6f7a7a8f6y3" path="res://imgs/ingredient/fish.png" id="9_qie43"]
 
 [node name="MainMenu" type="Control" unique_id=580234141]
 layout_mode = 3
@@ -19,32 +19,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qoqlk")
 
-[node name="PastedImage" type="Sprite2D" parent="." unique_id=436465183]
-material = SubResource("ShaderMaterial_eiy7p")
-position = Vector2(579, 324)
-scale = Vector2(0.5115453, 0.51607716)
-texture = ExtResource("2_h7a2f")
-
 [node name="Tischdingens" type="Sprite2D" parent="." unique_id=208122151]
-position = Vector2(566, 458.49997)
+position = Vector2(397, 458.49997)
 scale = Vector2(24.5, -3.34375)
 texture = ExtResource("4_7r1g0")
 
 [node name="Tischdingens2" type="Sprite2D" parent="." unique_id=980218038]
-position = Vector2(566, 578.00006)
+position = Vector2(397, 578.00006)
 scale = Vector2(24.5, -3.34375)
 texture = ExtResource("4_7r1g0")
 
 [node name="GameJam" type="Sprite2D" parent="." unique_id=1900467590]
-position = Vector2(551.00006, 164)
+position = Vector2(382.00006, 164)
 scale = Vector2(10, 10)
 texture = ExtResource("2_eiy7p")
 
 [node name="Start" type="Button" parent="." unique_id=1633059932]
 layout_mode = 0
-offset_left = 345.0
+offset_left = 176.0
 offset_top = 405.0
-offset_right = 739.0
+offset_right = 570.0
 offset_bottom = 514.0
 text = "Start"
 
@@ -54,11 +48,36 @@ autoplay = true
 
 [node name="Credits" type="Button" parent="." unique_id=1245054802]
 layout_mode = 0
-offset_left = 345.0
+offset_left = 176.0
 offset_top = 523.0
-offset_right = 739.0
+offset_right = 570.0
 offset_bottom = 632.0
 text = "Credits"
+
+[node name="Sushi" type="Sprite2D" parent="." unique_id=1108539880]
+position = Vector2(936.00006, 516)
+scale = Vector2(10.5625, 10.5625)
+texture = ExtResource("5_fimr5")
+
+[node name="CutFish" type="Sprite2D" parent="." unique_id=896430596]
+position = Vector2(857, 370)
+scale = Vector2(12.6875, 12.6875)
+texture = ExtResource("6_u7cqb")
+
+[node name="CookedRice" type="Sprite2D" parent="." unique_id=1445228994]
+position = Vector2(1061, 370)
+scale = Vector2(13.999998, 13.999998)
+texture = ExtResource("7_afec1")
+
+[node name="Rice" type="Sprite2D" parent="." unique_id=416298906]
+position = Vector2(1069, 229)
+scale = Vector2(10.531245, 10.531245)
+texture = ExtResource("8_31qfy")
+
+[node name="Fish" type="Sprite2D" parent="." unique_id=1412587009]
+position = Vector2(877, 229)
+scale = Vector2(13.499998, 13.499998)
+texture = ExtResource("9_qie43")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
