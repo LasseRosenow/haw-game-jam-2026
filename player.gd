@@ -140,6 +140,11 @@ func _on_body_entered(body: Node2D) -> void:
 		self.interactable_node = body
 		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
 		$ButtonUI.emit_signal("start_animation", true)
+	elif body.name.contains("Stove"):
+		print("Entered Stove")
+		self.interactable_node = body
+		$ButtonUI.emit_signal("change_animation", "Enter%s" % player)
+		$ButtonUI.emit_signal("start_animation", true)
 
 
 func _on_body_exited(body: Node2D) -> void:
