@@ -23,6 +23,7 @@ func _next_stage() -> void:
 	$ButtonUI.emit_signal("start_animation", false)
 	$Timer.stop()
 	player.reset_animation()
+	$Cutting.stop()
 	player = null
 
 func _reset() -> void:
@@ -31,6 +32,7 @@ func _reset() -> void:
 	$ButtonUI.emit_signal("start_animation", false)
 	$Timer.stop()
 	player.reset_animation()
+	$Cutting.stop()
 	player = null
 	has_fish = false
 	has_rice = false
@@ -42,6 +44,7 @@ func _process(delta: float) -> void:
 			print("Failed to continue pressing :(")
 			player.get_new_item(currently_working_item)
 			player.reset_animation()
+			$Cutting.stop()
 			_next_stage()
 
 func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
@@ -54,6 +57,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		currently_working_item = player.holding_item.item_type
 		interactor.consume_item()
 		player.set_animation("Cutting")
+		$Cutting.play()
 		$ButtonUI.emit_signal("change_animation", "ProgressBar")
 		$ButtonUI.emit_signal("start_animation", true)
 		$RequestFishTooltip.emit_signal("start_animation", false)
