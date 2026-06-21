@@ -24,6 +24,8 @@ shape = SubResource("RectangleShape2D_3fsnh")
 
 [node name="ButtonUI" parent="." unique_id=307060277 instance=ExtResource("3_a3bkh")]
 
+[node name="RequestRiceTooltip" parent="." unique_id=1141887331 instance=ExtResource("3_a3bkh")]
+
 [node name="Timer" type="Timer" parent="." unique_id=1056544846]
 one_shot = true
 
