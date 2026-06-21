@@ -33,6 +33,7 @@ func _next_button_task():
 		$Timer.start(1)
 	else:
 		$Timer.stop()
+		$FishingSound.play(0.0)
 		player.get_new_item("fish")
 		_reset()
 		

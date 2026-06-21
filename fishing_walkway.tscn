@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://du27a2l5fwkyw" path="res://fishing_walkway.gd" id="1_g0r1i"]
 [ext_resource type="PackedScene" uid="uid://vqoyibjtngrs" path="res://button_ui.tscn" id="3_ud524"]
 [ext_resource type="Texture2D" uid="uid://cj03f1ecjsyhc" path="res://imgs/tiles/bridges/bridges_sheet.png" id="4_p1npn"]
+[ext_resource type="AudioStream" uid="uid://be56bq1klphcm" path="res://audio/fishing.wav" id="4_p8aoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r83mo"]
 size = Vector2(8, 1.1920929e-07)
@@ -57,6 +58,10 @@ scale = Vector2(0.35999784, 0.35999784)
 
 [node name="Timer" type="Timer" parent="." unique_id=264091391]
 one_shot = true
+
+[node name="FishingSound" type="AudioStreamPlayer2D" parent="." unique_id=157054683]
+stream = ExtResource("4_p8aoq")
+volume_db = -3.875
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

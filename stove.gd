@@ -26,6 +26,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	
 	if state == "empty":
 		state = "cooking"
+		$BoilSound.play(0.0)
 		interactor.consume_item()
 		$ButtonUI.emit_signal("change_animation", "Wait")
 		$ButtonUI.emit_signal("start_animation", true)
@@ -34,6 +35,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		pass
 	else: if state == "finished":
 		state = "empty"
+		$OpenSound.play(0.0)
 		$ButtonUI.emit_signal("start_animation", false)
 		interactor.get_new_item("cooked_rice")
 
