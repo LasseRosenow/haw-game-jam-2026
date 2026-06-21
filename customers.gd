@@ -73,6 +73,7 @@ func _on_timer_timeout() -> void:
 		customer.position = node.position
 		customer.scale.x *= 2
 		customer.scale.y *= 2
+		customer.name = "Customer%s" % Time.get_unix_time_from_system()
 		node.add_child(customer)
 	else:
 		print("Tried to add customer but slot was filled")
