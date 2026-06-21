@@ -18,6 +18,12 @@ func set_up_customer(wanted_food: String, anger_limit: int)  -> void:
 	self.npc_version = randi() % 2 + 1
 	$Item.animation = wanted_food
 	$AnimatedSprite2D.animation = "%s" % self.npc_version
+	$Bubble.hide()
+	$Item.hide()
+	$Walk.play("Walk")
+	await $Walk.animation_finished
+	$Bubble.show()
+	$Item.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,7 +58,9 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		$Item.hide()
 		interactor.consume_item()
 		$Yipeeee.play(0.0)
+		$Walk.play_backwards("Walk")
 		get_parent().get_parent().emit_signal("success_task", 1.0 - (current_anger/anger_limit))
 		await $Yipeeee.finished
+		await $Walk.animation_finished
 		self.queue_free()
 	

@@ -8,13 +8,13 @@
 script = ExtResource("1_thu2g")
 
 [node name="Slot1" type="Node2D" parent="." unique_id=621484907]
-position = Vector2(119, 54)
+position = Vector2(80, -9)
 
 [node name="Slot2" type="Node2D" parent="." unique_id=153206002]
-position = Vector2(173, 54)
+position = Vector2(164, -9)
 
 [node name="Slot3" type="Node2D" parent="." unique_id=2072592392]
-position = Vector2(228, 55)
+position = Vector2(249, -8)
 
 [node name="Timer" type="Timer" parent="." unique_id=324856096]
 wait_time = 10.0
