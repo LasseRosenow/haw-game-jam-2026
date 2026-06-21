@@ -97,6 +97,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_551dw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sll7s"]
+resource_name = "Walk"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 3.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 112)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crw8f"]
+_data = {
+&"RESET": SubResource("Animation_551dw"),
+&"Walk": SubResource("Animation_sll7s")
+}
+
 [node name="Customer" type="RigidBody2D" unique_id=2120573512]
 collision_layer = 2
 collision_mask = 3
@@ -139,6 +176,9 @@ sprite_frames = SubResource("SpriteFrames_ijqsr")
 position = Vector2(1, -29)
 sprite_frames = ExtResource("10_sll7s")
 animation = &"rice"
+
+[node name="Walk" type="AnimationPlayer" parent="." unique_id=199199018]
+libraries/ = SubResource("AnimationLibrary_crw8f")
 
 [connection signal="interacted_with" from="." to="." method="_on_interacted_with"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

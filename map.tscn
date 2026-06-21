@@ -694,17 +694,20 @@ tile_map_data = PackedByteArray("AAACABcABQABAAsAAAACABoABQABAAoAAAACABwABQABAAo
 tile_set = SubResource("TileSet_ihmvw")
 
 [node name="RiceField" parent="." unique_id=933882624 instance=ExtResource("2_wijl4")]
-position = Vector2(47, 69)
+position = Vector2(18, 70)
 
 [node name="RiceField2" parent="." unique_id=1061646417 instance=ExtResource("2_wijl4")]
-position = Vector2(64, 69)
+position = Vector2(44, 70)
+
+[node name="RiceField4" parent="." unique_id=312849790 instance=ExtResource("2_wijl4")]
+position = Vector2(96, 70)
 
 [node name="RiceField3" parent="." unique_id=1651999154 instance=ExtResource("2_wijl4")]
-position = Vector2(81, 69)
+position = Vector2(70, 70)
 
 [node name="Restaurant" parent="." unique_id=429886905 instance=ExtResource("4_p5pve")]
 position = Vector2(62, 10)
 scale = Vector2(0.195, 0.195)
 
 [node name="FishingWalkway" parent="." unique_id=1215048035 instance=ExtResource("3_e0an3")]
-position = Vector2(3, 27)
+position = Vector2(125, 26)
