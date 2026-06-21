@@ -26,6 +26,16 @@ func _is_on_water() -> bool:
 @export var ground_y: float = 600.0   # Y at the bottom, no blue
 @export var top_y: float = 100.0      # Y at the top, full blue
 
+var override_animation = false
+
+func set_animation(animation: String) -> void:
+	override_animation = true
+	$AnimatedSprite2D.play(animation)
+	
+func reset_animation() -> void:
+	override_animation = false
+	$AnimatedSprite2D.play("Idle")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -92,33 +102,34 @@ func _process(delta: float) -> void:#
 			self.pickup_item(self.interact_body)
 		
 	# Sprite Processing
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		
-		$AnimatedSprite2D.flip_h = 0 >= velocity.x 
-		if _is_on_water():
-			$AnimatedSprite2D.play("Swimming")
-			if $WaterSound.stream_paused:
-				$WaterSound.stream_paused = false
-				$WalkSound.stream_paused = true
+	if not override_animation:
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * speed
+			
+			$AnimatedSprite2D.flip_h = 0 >= velocity.x 
+			if _is_on_water():
+				$AnimatedSprite2D.play("Swimming")
+				if $WaterSound.stream_paused:
+					$WaterSound.stream_paused = false
+					$WalkSound.stream_paused = true
+			else:
+				if $WalkSound.stream_paused:
+					$WaterSound.stream_paused = true
+					$WalkSound.stream_paused = false
+				if velocity.y == 0.0:
+					$AnimatedSprite2D.play("WalkingSideways")
+				else: if velocity.y < 0.0:
+					$AnimatedSprite2D.play("WalkingUpwards")
+				else: if velocity.y > 0.0:
+					$AnimatedSprite2D.play("Walking")
 		else:
-			if $WalkSound.stream_paused:
-				$WaterSound.stream_paused = true
-				$WalkSound.stream_paused = false
-			if velocity.y == 0.0:
-				$AnimatedSprite2D.play("WalkingSideways")
-			else: if velocity.y < 0.0:
-				$AnimatedSprite2D.play("WalkingUpwards")
-			else: if velocity.y > 0.0:
-				$AnimatedSprite2D.play("Walking")
-	else:
-		$WaterSound.stream_paused = true
-		$WalkSound.stream_paused = true
-		if _is_on_water():
-			$AnimatedSprite2D.play("Floating")
-		else:
-			$AnimatedSprite2D.frame = 0
-			$AnimatedSprite2D.stop()
+			$WaterSound.stream_paused = true
+			$WalkSound.stream_paused = true
+			if _is_on_water():
+				$AnimatedSprite2D.play("Floating")
+			else:
+				$AnimatedSprite2D.frame = 0
+				$AnimatedSprite2D.stop()
 	
 	# Position Updating
 	position += velocity * delta

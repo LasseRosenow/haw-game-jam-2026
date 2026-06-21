@@ -28,6 +28,7 @@ func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 		stage = "harvested"
 		$Harvest.start(2)
 		interactor.freeze = true
+		
 		$Cutting.play(0)
 		await $Harvest.timeout
 		$Cutting.stop()

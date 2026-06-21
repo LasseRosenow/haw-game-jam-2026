@@ -38,6 +38,23 @@ shader_parameter/blue_color = Color(0.1, 0.3, 1, 1)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("17_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7hik5")
+}],
+"loop": 1,
+"name": &"Cutting",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_qtqh7")
 }, {
 "duration": 1.0,
@@ -127,23 +144,6 @@ animations = [{
 "loop": 1,
 "name": &"WalkingUpwards",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_7lmhl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_dx0e4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_jm5j8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_7hik5")
-}],
-"loop": 1,
-"name": &"cutting",
-"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h31yd"]
@@ -162,8 +162,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008188233]
 material = SubResource("ShaderMaterial_1jxqw")
 sprite_frames = SubResource("SpriteFrames_kvc6a")
-animation = &"Farming"
-frame_progress = 0.4549124
+animation = &"Cutting"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073114979]
 position = Vector2(0.66666675, -1)
