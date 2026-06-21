@@ -1,9 +1,63 @@
-[gd_scene format=3 uid="uid://chopvjoptxkg0"]
+[gd_scene format=4 uid="uid://chopvjoptxkg0"]
 
 [ext_resource type="PackedScene" uid="uid://cweoutdgdpxca" path="res://map.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1ghiwr21lqmg" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b801l65xjgddt" path="res://item.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bfmq34sen40th" path="res://customers.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cts0vy3syl2mb" path="res://imgs/tiles/Restaurant/Table.png" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://dl1orq57c0y4" path="res://imgs/tilesetfromopensource/barrels.png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dop0oule8qj54" path="res://imgs/tiles/Restaurant/Table2.png" id="7_kek77"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
+texture = ExtResource("5_272bh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -4.307144, 8, -4.307144, -4.586829, 8, -4.7546396)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -4.922451, 8, -4.7546396)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 1.9018555, -3.4680903, 1.6221709, -4.2512074, -8, 8, -8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 2.4773922, -8, 2.1801052, -8, 2.5764875, -8, -8, 8, -8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efxa6"]
+texture = ExtResource("6_5vw27")
+0:0/0 = 0
+1:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
+texture = ExtResource("7_kek77")
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ycdy4"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 128
+sources/0 = SubResource("TileSetAtlasSource_4c57u")
+sources/4 = SubResource("TileSetAtlasSource_efxa6")
+sources/5 = SubResource("TileSetAtlasSource_dg77c")
 
 [node name="Node2D" type="Node2D" unique_id=1603126839]
 
@@ -12,9 +66,11 @@ scale = Vector2(8, 8)
 
 [node name="PlayerRight" parent="." unique_id=1238932236 instance=ExtResource("1_ig7tw")]
 position = Vector2(883, 95)
+scale = Vector2(2, 2)
 
 [node name="PlayerLeft" parent="." unique_id=1130892413 instance=ExtResource("1_ig7tw")]
 position = Vector2(380, 97)
+scale = Vector2(2, 2)
 player = 2
 
 [node name="Item" parent="." unique_id=1375219901 instance=ExtResource("2_0xm2m")]
@@ -25,3 +81,9 @@ position = Vector2(1598.3092, 305.05734)
 scale = Vector2(10, 10)
 
 [node name="Customers" parent="." unique_id=844352420 instance=ExtResource("4_1bvp3")]
+
+[node name="tablelayer" type="TileMapLayer" parent="." unique_id=1732467010]
+visible = false
+position = Vector2(1, 8)
+tile_map_data = PackedByteArray("AAACAAUAAAABAAAAAAADAAUAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAABAAAAAAAGAAUAAAABAAAAAAAHAAUAAAAAAAAAABACAAYAAAABAAEAAAADAAYAAAABAAEAAAAEAAYAAAABAAEAAAAFAAYAAAABAAEAAAAGAAYAAAABAAEAAAAHAAYAAAAAAAEAABABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_ycdy4")

@@ -1,6 +1,6 @@
 extends Area2D
 
-const MAX_SPEED = 400
+const MAX_SPEED = 200
 
 @export var speed = MAX_SPEED
 @export var player = 1
