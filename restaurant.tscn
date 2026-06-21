@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dop0oule8qj54" path="res://imgs/tiles/Restaurant/Table2.png" id="7_yamf8"]
 [ext_resource type="Texture2D" uid="uid://bq6f7a7a8f6y3" path="res://imgs/ingredient/fish.png" id="9_ilmu6"]
 [ext_resource type="Texture2D" uid="uid://d0fwv6d6a4m8d" path="res://imgs/tilesetfromopensource/farming_fishing.png" id="10_ji0jg"]
+[ext_resource type="Texture2D" uid="uid://bgdc8f4j7guis" path="res://imgs/tiles/Restaurant/Fence1.png" id="12_vs3kd"]
+[ext_resource type="Texture2D" uid="uid://dryk0fw8ypg76" path="res://imgs/tiles/Restaurant/Fence2.png" id="13_womg2"]
+[ext_resource type="Texture2D" uid="uid://ccpkitg8834c" path="res://imgs/tiles/Restaurant/Fence3.png" id="14_mv1iw"]
+[ext_resource type="Texture2D" uid="uid://7yc3wge6hbv0" path="res://imgs/Fence_tiles.png" id="15_obl2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pkq2"]
 texture = ExtResource("1_mtvav")
@@ -2073,6 +2077,30 @@ texture = ExtResource("10_ji0jg")
 [sub_resource type="TileSet" id="TileSet_aeb27"]
 sources/0 = SubResource("TileSetAtlasSource_pghrv")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qavj4"]
+texture = ExtResource("12_vs3kd")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1kau"]
+texture = ExtResource("13_womg2")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d60k0"]
+texture = ExtResource("14_mv1iw")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hadsv"]
+texture = ExtResource("15_obl2x")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5axpr"]
+sources/0 = SubResource("TileSetAtlasSource_qavj4")
+sources/1 = SubResource("TileSetAtlasSource_o1kau")
+sources/2 = SubResource("TileSetAtlasSource_d60k0")
+sources/3 = SubResource("TileSetAtlasSource_hadsv")
+
 [node name="Restaurant" type="Node2D" unique_id=429886905]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1446804987]
@@ -2129,3 +2157,7 @@ tile_set = SubResource("TileSet_82a1u")
 visible = false
 tile_map_data = PackedByteArray("AAD9/wQAAAAMAAcAAAD9/wUAAAAMAAgAAAD9/wYAAAAMAAkAAAD9/wcAAAAMAAoAAAD9/wgAAAAMAAsAAAD+/wQAAAANAAcAAAD+/wUAAAANAAgAAAD+/wYAAAANAAkAAAD+/wcAAAANAAoAAAD//wQAAAAOAAcAAAD//wUAAAAOAAgAAAD//wYAAAAOAAkAAAD//wcAAAAOAAoAAAAAAAQAAAAPAAcAAAAAAAUAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAcAAAAPAAoAAAAAAAgAAAAPAAsAAAD+/wEAAAANAAYAAAD//wEAAAAOAAYAAAAAAAEAAAAPAAYAAAD9/wAAAAAKAAgAACD+/wAAAAALAAgAACD//wAAAAAKAAgAACAAAAAAAAALAAgAACD9/wEAAAAMAAYAAAD9/wIAAAAMAAcAAAD9/wMAAAAMAAgAAAD+/wIAAAANAAcAAAD+/wMAAAANAAgAAAD//wIAAAAOAAcAAAD//wMAAAAOAAgAAAAAAAIAAAAPAAcAAAAAAAMAAAAPAAgAAAA=")
 tile_set = SubResource("TileSet_aeb27")
+
+[node name="TileMapLayer5" type="TileMapLayer" parent="." unique_id=1743090445]
+tile_map_data = PackedByteArray("AAD+/wcAAwAAAAAAAAD+/wYAAwABAAAAAAD+/wUAAwACAAAAAAD+/wQAAwABAAAAAAD+/wMAAwACAAAAAAD+/wIAAwABAAAAAAD+/wEAAwACAAAAAAA=")
+tile_set = SubResource("TileSet_5axpr")
