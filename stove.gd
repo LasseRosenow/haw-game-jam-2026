@@ -1,7 +1,8 @@
 extends RigidBody2D
 
 signal interacted_with(holding_item: bool, interactor: Area2D)
-var player: Area2D = null
+
+@export_enum("empty", "cooking", "finished") var state: String = "empty"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,21 +12,26 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _reset():
-	player.freeze = false
-	player = null
-	$ButtonUI.emit_signal("start_animation", false)
-	
-func _on_timer_timeout() -> void:
-	print("Fishing: Player failed :(")
-	_reset()
-
 func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
 	print("Somebody interacted with the fishing walkway :D")
 	print(holding_item)
 	print(interactor)
-	
-	player = interactor
-	# player.freeze = true
-	
-	player.get_new_item("cooked_rice")
+
+	if 	state == "empty":
+		state = "cooking"
+		$ButtonUI.emit_signal("change_animation", "Wait")
+		$ButtonUI.emit_signal("start_animation", true)
+		$Timer.start(4)
+
+	if state == "cooking":
+		pass
+
+	if state == "finished":
+		state = "empty"
+		$ButtonUI.emit_signal("start_animation", false)
+		interactor.get_new_item("cooked_rice")
+
+func _on_timer_timeout() -> void:
+	print("Cooking finished")
+	state = "finished"
+	$ButtonUI.emit_signal("change_animation", "Done")
