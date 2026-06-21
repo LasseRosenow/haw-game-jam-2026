@@ -29,6 +29,17 @@ func _is_on_water() -> bool:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	
+func get_new_item(item_type: String) -> void:
+	var item = preload("res://item.tscn").instantiate()
+	item.item_type = item_type
+	item.scale.x = 3.0
+	item.scale.y = 3.0
+	item.name = "Item%s" % Time.get_unix_time_from_system()
+	#Awful
+	get_parent().get_parent().add_child(item)
+	pickup_item(item)
+	get_parent().add_child(item)
 
 func pickup_item(item: Node2D) -> void:
 	item.global_position = self.global_position

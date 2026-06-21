@@ -25,18 +25,26 @@ func _process(delta: float) -> void:
 			_next_button_task()
 
 func _next_button_task():
-	expected_key_index = random_key_index()
-	counter += 1
-	$ButtonUI.emit_signal("change_animation", "%s%s" % [BUTTON_KEYS[expected_key_index], player.player])
-	$ButtonUI.emit_signal("start_animation", true)
-	$Timer.start(1)
-	
-func _on_timer_timeout() -> void:
-	print("Fishing: Player failed :(")
+	if counter < 2:
+		expected_key_index = random_key_index()
+		counter += 1
+		$ButtonUI.emit_signal("change_animation", "%s%s" % [BUTTON_KEYS[expected_key_index], player.player])
+		$ButtonUI.emit_signal("start_animation", true)
+		$Timer.start(1)
+	else:
+		$Timer.stop()
+		player.get_new_item("fish")
+		_reset()
+		
+func _reset():
 	counter = 0
 	player.freeze = false
 	player = null
 	$ButtonUI.emit_signal("start_animation", false)
+	
+func _on_timer_timeout() -> void:
+	print("Fishing: Player failed :(")
+	_reset()
 	
 
 func _on_interacted_with(holding_item: bool, interactor: Area2D) -> void:
