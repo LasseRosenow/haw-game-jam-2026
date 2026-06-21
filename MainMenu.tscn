@@ -30,6 +30,11 @@ position = Vector2(566, 458.49997)
 scale = Vector2(24.5, -3.34375)
 texture = ExtResource("4_7r1g0")
 
+[node name="Tischdingens2" type="Sprite2D" parent="." unique_id=980218038]
+position = Vector2(566, 578.00006)
+scale = Vector2(24.5, -3.34375)
+texture = ExtResource("4_7r1g0")
+
 [node name="GameJam" type="Sprite2D" parent="." unique_id=1900467590]
 position = Vector2(551.00006, 164)
 scale = Vector2(10, 10)
@@ -47,13 +52,14 @@ text = "Start"
 stream = ExtResource("5_iwfq2")
 autoplay = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1052565822]
+[node name="Credits" type="Button" parent="." unique_id=1245054802]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 622.0
-offset_right = 1130.0
-offset_bottom = 824.0
-text = "Credits: Lasse, Zhao, Tom                                                                                               Some Sound Effects by Throndronis, Nickcymru & PlagueDoctorCrow"
+offset_left = 345.0
+offset_top = 523.0
+offset_right = 739.0
+offset_bottom = 632.0
+text = "Credits"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

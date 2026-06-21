@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://blcutabtiqarv"]
+
+[ext_resource type="Script" uid="uid://blqu3c43padxi" path="res://game_over.gd" id="1_obosj"]
+[ext_resource type="Texture2D" uid="uid://cts0vy3syl2mb" path="res://imgs/tiles/Restaurant/Table.png" id="2_k2yj5"]
+[ext_resource type="AudioStream" uid="uid://chxp5mxyq7c1k" path="res://audio/GameNormal.wav" id="3_xic2l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_40baj"]
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_eksk4"]
+font_size = 28
+font_color = Color(0.52156866, 0.6431373, 1, 1)
+
+[node name="Credits" type="Control" unique_id=673834420]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_obosj")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=1453735210]
+position = Vector2(155.99995, 380.99994)
+scale = Vector2(27.340471, 27.340471)
+texture = ExtResource("2_k2yj5")
+
+[node name="Table2" type="Sprite2D" parent="." unique_id=1709427163]
+position = Vector2(1029, 381)
+scale = Vector2(27.340471, 27.340471)
+texture = ExtResource("2_k2yj5")
+flip_h = true
+
+[node name="Highscore" type="Label" parent="." unique_id=2037258549]
+visible = false
+layout_mode = 0
+offset_top = 128.0
+offset_right = 1153.0
+offset_bottom = 260.0
+text = "Highscore: 0"
+label_settings = SubResource("LabelSettings_40baj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1738233852]
+layout_mode = 0
+offset_left = 368.99997
+offset_top = 499.99997
+offset_right = 526.0
+offset_bottom = 538.74695
+scale = Vector2(2.3234842, 2.3234842)
+
+[node name="BackToMenu" type="Label" parent="MainMenuButton" unique_id=1332699408]
+layout_mode = 0
+offset_left = -499.2502
+offset_top = -48.203472
+offset_right = 653.74976
+offset_bottom = 83.796524
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_eksk4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1259510620]
+stream = ExtResource("3_xic2l")
+autoplay = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1977760620]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 26.0
+offset_right = 1441.0
+offset_bottom = 486.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Some Sound Effects from freesound.org by:
+- Throndronis,
+- Nickcymru, 
+- PlagueDoctorCrow
+Some Assets from opengameart.org by:
+ - Daniel Eddeland
+Created by: Zhao, Lasse & Tom"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
